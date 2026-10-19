@@ -47,7 +47,7 @@ class RoutingBoundaryTests(CampusBase):
                          "本校休学的办理流程", "宿舍的收费标准是多少", "研究生毕业的学分要求是什么",
                          "食堂几点关门", "校园卡挂失的流程是什么", "校医院的预约方式是什么",
                          "研究生转导师需要什么条件", "学位授予复核的申请期限是什么", "西电办理复核需要哪些材料",
-                         "研究生在校外连续居住超过多少天需要办理校外住宿手续？"]:
+                         "研究生在校外连续居住超过多少天需要办理校外住宿手续？", "寝室的违禁用品有哪些"]:
             with self.subTest(question=question):
                 self.assertTrue(is_policy_request(question))
 
