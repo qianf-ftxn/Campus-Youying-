@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>校园有应 学生端</title>
+  <link rel="stylesheet" href="/styles.css?v=student-premium-20260726">
+</head>
+<body class="student-page">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo student-logo">应</div>
+      <div>
+        <p class="eyebrow">CAMPUS ASSISTANT</p>
+        <h1>校园有应 · 校园资讯助手</h1>
+        <p class="topbar-subtitle">查政策、问规则，也可以聊聊校园生活</p>
+      </div>
+    </div>
+    <div class="status-row">
+      <span id="serviceState" class="pill warn">连接中</span>
+      <span id="modelState" class="pill warn">模型读取中</span>
+      <div id="accountBadge" class="account">
+        <strong id="activeAccount">学生</strong>
+        <span>学生端</span>
+      </div>
+      <button id="switchAccount" class="dark-btn" type="button">退出</button>
+    </div>
+  </header>
+
+  <main class="student-layout premium-student-layout">
+    <aside class="student-rail">
+      <section class="panel session-history" aria-label="历史对话">
+        <div class="section-head">
+          <div><p class="panel-label">YOUR CONVERSATIONS</p><h3>历史对话</h3></div>
+          <button id="sidebarNewSession" class="ghost" type="button">新对话 +</button>
+        </div>
+        <p id="sessionListStatus" class="hint" role="status">正在读取历史对话……</p>
+        <nav id="sessionList" class="session-list" aria-label="选择历史对话"></nav>
+        <button id="moreSessions" class="ghost session-more" type="button" hidden>加载更多</button>
+      </section>
+      <section class="companion-card">
+        <div class="companion-visual" role="img" aria-label="阳光下在校园空间中书写的学生"></div>
+        <div class="companion-copy">
+          <span>YOUR CAMPUS GUIDE</span>
+          <h2>校园里的问题，从这里开始</h2>
+          <p>查询校规、差旅报销和奖助政策，依据已接入的文件回答。</p>
+        </div>
+      </section>
+
+      <section class="panel checkin-panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">QUICK QUESTIONS</p>
+            <h3>你想了解什么？</h3>
+          </div>
+          <span class="checkin-note">选择一个开始</span>
+        </div>
+        <div class="signal-grid">
+          <button class="signal mood-signal" type="button" data-quick="研究生出差的报销规则是什么？伙食补助标准是多少？">
+            <span class="signal-icon">◒</span>
+            <span><strong>研究生报销</strong><small>差旅、补助与材料</small></span>
+          </button>
+          <button class="signal mood-signal" type="button" data-quick="学校的请假流程和学籍管理规定有哪些？">
+            <span class="signal-icon">≈</span>
+            <span><strong>校规与办事</strong><small>请假、学籍与培养</small></span>
+          </button>
+          <button class="signal mood-signal" type="button" data-quick="奖学金和助学金申请需要准备哪些材料？">
+            <span class="signal-icon">—</span>
+            <span><strong>奖助政策</strong><small>申请条件与材料</small></span>
+          </button>
+          <button class="signal mood-signal" type="button" data-quick="我最近压力很大，晚上睡不好，想找人聊聊。">
+            <span class="signal-icon">↗</span>
+            <span><strong>生活与情绪</strong><small>倾听、支持与求助</small></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="support-note">
+        <span class="support-mark">应</span>
+        <div>
+          <strong>依据文件，认真回应</strong>
+          <p>具体政策以适用的学校正式文件为准。情绪支持不替代专业诊断，紧急危险请联系身边的人或当地紧急服务。</p>
+        </div>
+      </section>
+    </aside>
+
+    <section class="chat-panel student-chat">
+      <div class="chat-head student-chat-head">
+        <div class="chat-heading-wrap">
+          <span class="assistant-avatar">应</span>
+          <div>
+            <p class="panel-label">CAMPUS YOUYING</p>
+            <h2 id="studentGreeting">今天想了解什么？</h2>
+            <p id="conversationTitle" class="chat-subtitle">新对话 · 从此刻最想了解的问题开始</p>
+          </div>
+        </div>
+        <div class="session-state">
+          <span class="session-dot"></span>
+          <span id="sessionBadge" class="pill">READY</span>
+        </div>
+      </div>
+      <div class="student-trust-row" aria-label="对话特点">
+        <span><i></i>政策有据</span>
+        <span><i></i>多轮追问</span>
+        <span><i></i>需要时提供支持</span>
+      </div>
+      <div id="messages" class="messages">
+        <div class="empty student-welcome">
+          <span class="welcome-kicker">YOUR CAMPUS, CONNECTED</span>
+          <strong>校园里的疑问，可以直接问</strong>
+          <p>可以问报销规则、校规和校园服务，也可以分享近况。正式政策尚未导入时，我会说明资料不足。</p>
+          <div class="welcome-prompts">
+            <button type="button" data-quick="研究生出差的住宿费怎么报销？">差旅住宿报销</button>
+            <button type="button" data-quick="学校心理咨询中心怎么预约？">校园服务预约</button>
+            <button type="button" data-quick="今天终于完成论文了，想聊聊天。">聊聊今天的校园生活</button>
+          </div>
+        </div>
+      </div>
+      <form id="chatForm" class="composer">
+        <div class="composer-shell">
+          <textarea id="messageInput" maxlength="1000" placeholder="例如：研究生出差每天的伙食补助是多少？" rows="3"></textarea>
+          <div class="composer-meta">
+            <span>政策咨询 · 日常交流 · 情绪支持</span>
+            <span id="charCount">0 / 1000</span>
+          </div>
+        </div>
+        <div class="composer-actions student-composer-actions">
+          <span class="keyboard-hint">Enter 发送 · Shift+Enter 换行</span>
+          <div>
+            <button id="newSession" class="ghost" type="button">重新开始</button>
+            <button id="sendButton" class="primary send-button" type="submit">发送消息 <span>↗</span></button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="/student.js?v=stream-routing-20261019"></script>
+</body>
+</html>

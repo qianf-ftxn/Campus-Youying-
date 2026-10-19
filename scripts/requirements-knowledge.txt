@@ -1,0 +1,2 @@
+# Only for refreshing public official snapshots; normal startup needs neither this nor network scraping.
+beautifulsoup4>=4.12,<5

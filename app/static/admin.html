@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>校园有应 管理员端</title>
+  <link rel="stylesheet" href="/styles.css?v=admin-dashboard-20260726">
+</head>
+<body class="admin-page">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo admin-logo">应</div>
+      <div>
+        <p class="eyebrow">CAMPUS ADMIN</p>
+        <h1>校园有应 管理后台</h1>
+        <p class="topbar-subtitle">校园知识维护与学生支持中心</p>
+      </div>
+    </div>
+    <div class="status-row">
+      <span id="serviceState" class="pill warn">连接中</span>
+      <span id="modelState" class="pill warn">模型读取中</span>
+      <div id="accountBadge" class="account">
+        <strong id="activeAccount">管理员</strong>
+        <span>管理员端</span>
+      </div>
+      <button id="refreshAdmin" class="ghost" type="button">刷新</button>
+      <button id="switchAccount" class="dark-btn" type="button">退出</button>
+    </div>
+  </header>
+
+  <main class="admin-layout">
+    <section class="admin-grid" aria-label="核心运营指标">
+      <div class="metric metric-blue">
+        <span>支持报告</span>
+        <strong id="metricReports">0</strong>
+        <small id="metricReportsMeta">累计沉淀</small>
+      </div>
+      <div class="metric metric-red">
+        <span>高风险报告</span>
+        <strong id="metricHigh">0</strong>
+        <small id="metricHighMeta">占比 0%</small>
+      </div>
+      <div class="metric metric-amber">
+        <span>风险个案</span>
+        <strong id="metricCases">0</strong>
+        <small id="metricCasesMeta">待跟进 0</small>
+      </div>
+      <div class="metric metric-teal">
+        <span>Excel 写入</span>
+        <strong id="metricExcel">0</strong>
+        <small id="metricExcelMeta">成功 0</small>
+      </div>
+      <div class="metric metric-purple">
+        <span>风险预警</span>
+        <strong id="metricAlerts">0</strong>
+        <small id="metricAlertsMeta">发送成功 0</small>
+      </div>
+    </section>
+
+    <section class="dashboard-section" aria-labelledby="insightTitle">
+      <div class="dashboard-title-row">
+        <div>
+          <p class="panel-label">DATA INSIGHTS</p>
+          <h2 id="insightTitle">支持与安全数据洞察</h2>
+        </div>
+        <span id="lastUpdated" class="update-stamp">等待数据刷新</span>
+      </div>
+
+      <div class="analytics-layout">
+        <article class="panel trend-panel">
+          <div class="chart-head">
+            <div>
+              <p class="panel-label">7-DAY TREND</p>
+              <h3>近 7 日报告趋势</h3>
+            </div>
+            <span id="trendTotal" class="chart-total">共 0 条</span>
+          </div>
+          <div id="activityTrend" class="trend-chart" aria-label="近 7 日报告数量"></div>
+        </article>
+
+        <div class="distribution-grid">
+          <article class="insight-card">
+            <div>
+              <p class="panel-label">RISK LEVEL</p>
+              <h3>风险等级</h3>
+            </div>
+            <div id="riskDistribution" class="distribution-list"></div>
+          </article>
+          <article class="insight-card">
+            <div>
+              <p class="panel-label">EMOTION</p>
+              <h3>情绪分布</h3>
+            </div>
+            <div id="emotionDistribution" class="distribution-list"></div>
+          </article>
+          <article class="insight-card">
+            <div>
+              <p class="panel-label">INTENT</p>
+              <h3>支持报告意图</h3>
+            </div>
+            <div id="intentDistribution" class="distribution-list"></div>
+          </article>
+          <article class="insight-card">
+            <div>
+              <p class="panel-label">DELIVERY</p>
+              <h3>工具状态</h3>
+            </div>
+            <div id="toolDistribution" class="distribution-list"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-data-grid">
+      <section class="panel data-panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">CASES</p>
+            <h2>风险个案闭环</h2>
+          </div>
+          <span id="casesCount" class="section-count">0 个个案</span>
+        </div>
+        <div id="cases" class="cases scroll-list"></div>
+      </section>
+
+      <section class="panel data-panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">REPORTS</p>
+            <h2>支持报告记录</h2>
+          </div>
+          <span id="reportsCount" class="section-count">0 条报告</span>
+        </div>
+        <div id="reports" class="reports scroll-list"></div>
+      </section>
+
+      <section class="panel data-panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">DELIVERY LOG</p>
+            <h2>工具执行记录</h2>
+          </div>
+        </div>
+        <div class="delivery-block">
+          <div class="delivery-heading">
+            <strong>Excel 写入</strong>
+            <span id="excelCount">0 条</span>
+          </div>
+          <div id="excelRecords" class="delivery-list"></div>
+        </div>
+        <div class="delivery-block">
+          <div class="delivery-heading">
+            <strong>预警发送</strong>
+            <span id="alertCount">0 条</span>
+          </div>
+          <div id="alertRecords" class="delivery-list"></div>
+        </div>
+      </section>
+
+      <section class="panel data-panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">SAFETY MEMORY</p>
+            <h2>安全状态与风险事件</h2>
+          </div>
+          <span id="safetyCount" class="section-count">0 个用户</span>
+        </div>
+        <div id="safetyStates" class="cases scroll-list"></div>
+        <div class="delivery-heading" style="margin-top: 12px">
+          <strong>风险事件时间线</strong>
+          <span id="riskEventCount">0 条</span>
+        </div>
+        <div id="riskEvents" class="delivery-list scroll-list"></div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="section-head"><div><p class="panel-label">CONVERSATION RUNS</p><h2>对话与运行记录</h2></div><span id="conversationRunsCount" class="hint">最近 100 次运行</span></div>
+      <div id="conversationRuns" class="knowledge-documents"></div>
+    </section>
+    <section class="admin-detail-grid">
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">KNOWLEDGE BASE</p>
+            <h2>RAG 知识库维护</h2>
+          </div>
+          <span id="knowledgeState" class="hint">等待读取</span>
+        </div>
+        <form id="knowledgeUploadForm" class="upload-row">
+          <input id="knowledgeFile" type="file" accept=".pdf,.md,.markdown,.txt,application/pdf,text/markdown,text/plain">
+          <button class="primary" type="submit">上传入库</button>
+        </form>
+        <div class="knowledge-fields">
+          <label>资料标题<input id="knowledgeTitle" maxlength="256" placeholder="留空时读取文件标题"></label>
+          <label>知识领域<select id="knowledgeDomain"><option value="policy">校园政策</option><option value="support">情绪支持</option></select></label>
+          <label>版本号<input id="knowledgeVersion" maxlength="64" placeholder="留空自动按内容生成"></label>
+          <label>发布部门<input id="knowledgeDepartment" maxlength="128" placeholder="例如：研究生院、财务处"></label>
+          <label>原文链接<input id="knowledgeUrl" type="url" placeholder="https://..."></label>
+          <label>发布日期<input id="knowledgePublished" type="date"></label>
+          <label>生效日期<input id="knowledgeEffective" type="date"></label>
+          <label>失效日期<input id="knowledgeExpires" type="date"></label>
+          <label>文档状态<select id="knowledgeStatus"><option value="ACTIVE">启用</option><option value="DRAFT">草稿</option><option value="ARCHIVED">归档</option></select></label>
+        </div>
+        <div class="admin-actions">
+          <button id="rebuildVector" class="ghost" type="button">重建向量索引</button>
+          <button id="backupVector" class="ghost" type="button">备份向量索引</button>
+        </div>
+        <div id="knowledgeDocuments" class="knowledge-documents"></div>
+        <p id="policyKnowledgeStatus" class="hint" role="status"></p>
+        <p id="knowledgeUploadState" class="hint">支持文字型 PDF、Markdown、UTF-8 txt；扫描件需先 OCR。未来生效的资料先保存为草稿。</p>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="panel-label">SESSION ARCHIVE</p>
+            <h2>会话档案审阅</h2>
+          </div>
+          <span id="conversationState" class="hint">选择一条报告查看</span>
+        </div>
+        <div id="conversationDetail" class="conversation-detail">
+          <div class="empty small">
+            <strong>未选择报告</strong>
+            <p>点击报告后，这里只读展示完整历史消息。</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/admin.js?v=admin-sources-20261019"></script>
+</body>
+</html>

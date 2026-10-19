@@ -1,0 +1,579 @@
+{
+  "schema_version": 1,
+  "school": "西安电子科技大学",
+  "checked_on": "2026-10-19",
+  "documents": [
+    {
+      "title": "关于印发《西安电子科技大学家庭经济困难研究生资助管理办法》的通知",
+      "url": "https://ygb.xidian.edu.cn/info/1059/2472.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "关于印发《西安电子科技大学研究生国家奖学金评审管理办法》的通知",
+      "url": "https://ygb.xidian.edu.cn/info/1059/2471.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "研究生助研津贴发放要求及流程变动说明",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1587.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学服兵役学生国家教育资助实施办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1601.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学基层就业学费补偿国家助学贷款代偿实施办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1589.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生校长奖评选管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1590.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生学业奖学金管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1591.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生助管岗位设置与管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1592.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生国家助学金管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1593.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生助研工作管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1594.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生承担本科助教工作管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1059/1596.htm",
+      "category": "funding",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/zzzc.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "​西安电子科技大学研究生校外住宿管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1061/13103.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生请销假管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1061/13093.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "研究生教育管理常见手续办理流程介绍",
+      "url": "https://ygb.xidian.edu.cn/info/1061/9703.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "关于印发《西安电子科技大学 学生公寓空调使用管理细则（试行）》的通知",
+      "url": "https://ygb.xidian.edu.cn/info/1061/6353.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "​关于印发《西安电子科技大学学生公寓管理和服务办法》的通知",
+      "url": "https://ygb.xidian.edu.cn/info/1061/5463.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生学籍电子注册管理办法（试行）",
+      "url": "https://ygb.xidian.edu.cn/info/1061/3403.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生校外学习实践管理办法",
+      "url": "https://ygb.xidian.edu.cn/info/1061/4703.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "研究生学生证新办、补办流程",
+      "url": "https://ygb.xidian.edu.cn/info/1061/1706.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生学籍管理实施细则",
+      "url": "https://ygb.xidian.edu.cn/info/1061/1628.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "关于印发《西安电子科技大学研究生管理规定》的通知",
+      "url": "https://ygb.xidian.edu.cn/info/1061/1630.htm",
+      "category": "graduate_management",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/xsgl.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生违纪处分办法",
+      "url": "https://ygb.xidian.edu.cn/info/1062/1639.htm",
+      "category": "discipline",
+      "index_url": "https://ygb.xidian.edu.cn/gzzd/wjcf.htm",
+      "department": "党委研究生工作部",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学博士学位论文或实践成果总结报告双盲评审实施细则（2026年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/19204.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生学位授予复核工作暂行办法",
+      "url": "https://gr.xidian.edu.cn/info/1045/16504.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学关于研究生毕业、结业、肄业的管理规定 （2025年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/16494.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学工程类专业学位博士研究生申请学位研究成果基本要求（2025年修订...",
+      "url": "https://gr.xidian.edu.cn/info/1045/16484.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学硕士学位授予实施细则（2025年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/16474.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学博士学位授予实施细则（2025年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/16464.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "教育部关于转发《工程类博士专业学位研究生学位论文与申请学位实践成果基本要求（...",
+      "url": "https://gr.xidian.edu.cn/info/1045/15814.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "全国工程专业学位研究生教育指导委员会关于发布《工程类专业学位类别硕士学位论文...",
+      "url": "https://gr.xidian.edu.cn/info/1045/15804.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "《中华人民共和国学位法》",
+      "url": "https://gr.xidian.edu.cn/info/1045/15344.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生学位论文抽检结果处理办法（2024年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/14564.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学优秀博士学位论文资助基金实施办法（2021年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/11173.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生申请学位研究成果基本要求（2020年修订）",
+      "url": "https://gr.xidian.edu.cn/info/1045/9204.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学学位证明书管理办法",
+      "url": "https://gr.xidian.edu.cn/info/1045/7343.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学关于调整博士研究生学制的通知",
+      "url": "https://gr.xidian.edu.cn/info/1045/6076.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生学位论文抽查评估实施细则",
+      "url": "https://gr.xidian.edu.cn/info/1045/5286.htm",
+      "category": "degrees",
+      "index_url": "https://gr.xidian.edu.cn/xwsy/gzzd.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生必修环节类管理规定",
+      "url": "https://gr.xidian.edu.cn/info/1039/10206.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学博士研究生综合考试实施办法",
+      "url": "https://gr.xidian.edu.cn/info/1039/10205.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生教学事故认定及处理办法（试行）",
+      "url": "https://gr.xidian.edu.cn/info/1039/10196.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生转学科（专业学位类别）、转导师管理办法（试行）",
+      "url": "https://gr.xidian.edu.cn/info/1039/10195.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生课程置换与学分认定管理办法",
+      "url": "https://gr.xidian.edu.cn/info/1039/10194.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生课程考核管理办法",
+      "url": "https://gr.xidian.edu.cn/info/1039/10192.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "title": "西安电子科技大学研究生课程教学管理规定",
+      "url": "https://gr.xidian.edu.cn/info/1039/10191.htm",
+      "category": "courses",
+      "index_url": "https://gr.xidian.edu.cn/pygl/jxgl2.htm",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "西安电子科技大学；以正文适用对象与校区为准",
+      "freshness": "主管部门当前公开制度栏目所列版本；并非校内制度库全量核验"
+    },
+    {
+      "url": "https://ygb.xidian.edu.cn/info/1067/12503.htm",
+      "title": "2025年研究生国家奖学金评审通知",
+      "category": "funding",
+      "department": "党委研究生工作部",
+      "status": "ARCHIVED",
+      "scope": "2025年度，历史通知，不能用于当前申请截止日期",
+      "freshness": "截至2026-10-19在主管部门官网公开的对应年度资料"
+    },
+    {
+      "url": "https://ygb.xidian.edu.cn/info/1067/12483.htm",
+      "title": "2025～2026学年研究生学业奖学金评定通知",
+      "category": "funding",
+      "department": "党委研究生工作部",
+      "status": "ARCHIVED",
+      "scope": "2025～2026学年，历史通知",
+      "freshness": "截至2026-10-19在主管部门官网公开的对应年度资料"
+    },
+    {
+      "url": "https://gr.xidian.edu.cn/info/1073/20504.htm",
+      "title": "2026年秋季学期培养计划制定及选课指南",
+      "category": "courses",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "仅限2026年秋季学期；不推广到其他学期",
+      "freshness": "截至2026-10-19在主管部门官网公开的对应年度资料"
+    },
+    {
+      "url": "https://gr.xidian.edu.cn/info/1074/20804.htm",
+      "title": "2027年硕士研究生招生简章",
+      "category": "admissions",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "仅限2027年硕士招生，申请通常发生于2026年",
+      "freshness": "截至2026-10-19在主管部门官网公开的对应年度资料",
+      "attachment_title_contains": [
+        "招生简章"
+      ]
+    },
+    {
+      "url": "https://gr.xidian.edu.cn/info/1074/20524.htm",
+      "title": "2027年推荐免试研究生接收工作实施办法",
+      "category": "admissions",
+      "department": "研究生院",
+      "status": "ACTIVE",
+      "scope": "仅限2027年推免招生",
+      "freshness": "截至2026-10-19在主管部门官网公开的对应年度资料"
+    },
+    {
+      "url": "https://jwc.xidian.edu.cn/info/1024/12457.htm",
+      "title": "西安电子科技大学学籍身份信息修改或变更管理办法",
+      "category": "undergraduate",
+      "index_url": "https://jwc.xidian.edu.cn/gzzd.htm",
+      "department": "教务处",
+      "status": "ACTIVE",
+      "scope": "本科生；不能直接套用于研究生",
+      "freshness": "教务处当前公开规章制度栏目所列版本"
+    },
+    {
+      "url": "https://jwc.xidian.edu.cn/info/1024/12226.htm",
+      "title": "关于印发《西安电子科技大学本科生平均绩点（GPA）计算方法》的通知 ",
+      "category": "undergraduate",
+      "index_url": "https://jwc.xidian.edu.cn/gzzd.htm",
+      "department": "教务处",
+      "status": "ACTIVE",
+      "scope": "本科生；不能直接套用于研究生",
+      "freshness": "教务处当前公开规章制度栏目所列版本"
+    },
+    {
+      "url": "https://jwc.xidian.edu.cn/info/1024/7722.htm",
+      "title": "西安电子科技大学学籍管理规定（2019版）",
+      "category": "undergraduate",
+      "index_url": "https://jwc.xidian.edu.cn/gzzd.htm",
+      "department": "教务处",
+      "status": "ACTIVE",
+      "scope": "本科生；不能直接套用于研究生",
+      "freshness": "教务处当前公开规章制度栏目所列版本"
+    },
+    {
+      "url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+      "title": "推荐优秀应届本科毕业生免试攻读硕士学位研究生工作实施办法（修订）",
+      "category": "undergraduate",
+      "index_url": "https://jwc.xidian.edu.cn/gzzd.htm",
+      "department": "教务处",
+      "status": "ACTIVE",
+      "scope": "本科生；不能直接套用于研究生",
+      "freshness": "教务处当前公开规章制度栏目所列版本"
+    },
+    {
+      "url": "https://jwc.xidian.edu.cn/info/1024/10929.htm",
+      "title": "大类招生学生分流转专业实施办法（试行）",
+      "category": "undergraduate",
+      "index_url": "https://jwc.xidian.edu.cn/gzzd.htm",
+      "department": "教务处",
+      "status": "ACTIVE",
+      "scope": "本科生；不能直接套用于研究生",
+      "freshness": "教务处当前公开规章制度栏目所列版本"
+    },
+    {
+      "id": "cwc-work-meals",
+      "url": "https://cwc.xidian.edu.cn/__local/7/7E/69/0E110D874888E93174D33ABAB1D_75705DD5_4CE47.pdf",
+      "title": "西安电子科技大学工作餐费财务报销管理规定",
+      "format": "pdf",
+      "category": "research_finance",
+      "department": "财务处",
+      "status": "DRAFT",
+      "scope": "教学科研机构工作餐，不能当作学生出差每日餐补标准",
+      "freshness": "官方公开附件可下载，但当前制度目录需要校内访问，未核实现行性；待管理员核对后启用"
+    }
+  ],
+  "known_gaps": [
+    {
+      "url": "https://cwc.xidian.edu.cn/",
+      "title": "财务处官网及现行差旅、票据报销制度",
+      "category": "research_finance",
+      "reason": "财务处要求校内访问，未获得可核实的公开正文",
+      "checked_on": "2026-10-19"
+    }
+  ],
+  "excluded": [
+    {
+      "url": "https://gr.xidian.edu.cn/info/1045/5285.htm",
+      "reason": "旧博士论文双盲细则，已有2026年修订版本，未混入默认资料"
+    },
+    {
+      "url": "https://gr.xidian.edu.cn/info/1045/7094.htm",
+      "reason": "2018年申请学位成果要求，已有后续版本，未默认收集"
+    },
+    {
+      "url": "https://ygb.xidian.edu.cn/info/1059/2301.htm",
+      "reason": "旧版全国学生资助资金管理办法，不能据此断言当前金额标准"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# 原始快照和校验过的 RAG 正文必须保持字节一致，包括 Windows checkout。
+/knowledge/xidian/** -text
