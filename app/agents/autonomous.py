@@ -23,9 +23,9 @@ from app.core.config import Settings
 from app.core.enums import IntentType, RiskLevel
 from app.schemas.dtos import AiMessage
 from app.services.agent_models import AgentModelRegistry
-from app.services.ai import AiClient, PromptTemplates, has_consult_signal, has_high_risk_signal, has_policy_signal, is_policy_request
+from app.services.ai import AiClient, PromptTemplates, has_high_risk_signal
 from app.services.assessment import PsychologicalAssessmentService
-from app.services.intent_rules import is_general_request, is_policy_followup
+from app.services.intent_rules import classify_intent_rules, is_general_request, parse_intent_label
 from app.services.streaming import (INTERNAL_SAFETY_LABELS, PHONE_PATTERN, SAFETY_OPENING,
     MONITORING_OPENING, collect_guarded_stream, verified_contact_numbers)
 
@@ -33,13 +33,6 @@ if TYPE_CHECKING:
     from app.models.entities import ChatSession, UserAccount
     from app.services.knowledge import KnowledgeService, SearchResult
     from app.services.memory import RedisShortTermMemoryStore
-
-
-GENERAL_TASK_WORDS = [
-    "java", "python", "javascript", "代码", "编程", "程序", "算法", "数据库", "spring", "maven",
-    "前端", "后端", "项目", "接口", "bug", "报错", "作业", "论文", "翻译", "总结", "解释",
-    "怎么写", "如何", "是什么", "为什么", "给我", "帮我", "推荐", "查询", "天气", "路线",
-]
 
 
 @dataclass
@@ -117,8 +110,8 @@ class UnderstandingAgent(BaseAutonomousAgent):
         name="UnderstandingAgent",
         capabilities=frozenset({AgentCapability.UNDERSTANDING}),
         system_prompt=(
-            "你是 UnderstandingAgent。你只负责理解用户当前请求，输出意图、主题、置信度和理由，"
-            "不生成最终回复，不做风险处置。"
+            "你是 UnderstandingAgent。你只负责理解用户当前请求，不生成最终回复，不做风险处置。"
+            "只输出 CHAT、CONSULT、RISK 三个标签之一，不输出 JSON、解释、主题或置信度。"
         ),
         memory_policy="private_intent_history",
         model_profile="understanding",
@@ -137,9 +130,13 @@ class UnderstandingAgent(BaseAutonomousAgent):
         confidence = 0.92 if intent == IntentType.RISK else 0.78
         payload = {
             "intent": intent.value,
-            "topic": self._topic(board.model_input or board.user_input),
+            "topic": self._topic(board.model_input or board.user_input, intent),
             "reason": getattr(self, "routing_reason", "autonomous intent proposal"),
             "requiresPolicyRetrieval": intent == IntentType.CONSULT,
+            "routingSource": self.routing_source,
+            "ruleId": self.routing_rule_id,
+            "modelLabel": self.routing_model_label,
+            "fallbackReason": self.routing_fallback_reason,
             "privateMemoryKey": self.services.private_memory._key(self.name, self.services.session.public_id),
         }
         self.remember(f"intent={intent.value}; topic={payload['topic']}")
@@ -163,28 +160,20 @@ class UnderstandingAgent(BaseAutonomousAgent):
         return bool(board.user_input and task.metadata.get("kind") in {"root", "understanding"})
 
     def _classify(self, text: str, board: CollaborationBlackboard) -> IntentType:
-        lowered = text.lower()
-        if has_high_risk_signal(lowered):
+        self.routing_source = "rule"
+        self.routing_model_label = ""
+        self.routing_fallback_reason = ""
+        if has_high_risk_signal(text):
+            self.routing_rule_id = "personal_danger"
             self.routing_reason = "current personal danger signal"
-            return IntentType.RISK
-        if is_general_request(lowered):
-            self.routing_reason = "general knowledge, writing or programming request"
-            return IntentType.CHAT
-        if is_policy_request(lowered):
-            self.routing_reason = "institution-specific rule or service fact requested"
-            return IntentType.CONSULT
-        emotion_text = re.sub(r"咨询(?:一下|个问题)?", "", lowered)
-        if has_consult_signal(emotion_text):
-            self.routing_reason = "personal emotional support request"
             return IntentType.RISK
         snapshot = board.memory_snapshot
         previous = [m.content for m in (snapshot.recent_messages if snapshot else ()) if m.role == "user"]
-        if is_policy_followup(text, previous, snapshot.summary_text if snapshot else ""):
-            self.routing_reason = "elliptical follow-up with an applicable policy topic"
-            return IntentType.CONSULT
-        if any(word in lowered for word in GENERAL_TASK_WORDS):
-            self.routing_reason = "general conversation request"
-            return IntentType.CHAT
+        decision = classify_intent_rules(text, previous)
+        self.routing_rule_id = decision.rule_id
+        if decision.intent is not None:
+            self.routing_reason = decision.rule_id
+            return decision.intent
         try:
             history = _snapshot_context_messages(board, limit=8)
             memory_context = "\n".join(item.content for item in self.private_memory()[-6:])
@@ -192,28 +181,29 @@ class UnderstandingAgent(BaseAutonomousAgent):
                 *PromptTemplates.intent_prompt(history, text),
                 AiMessage(role="system", content=f"{self.profile.system_prompt}\n私有记忆：\n{memory_context or '无'}"),
             ]
-            label = self.client().complete(messages).strip().upper()
-            if label == "RISK":
-                self.routing_reason = "semantic emotional support classification"
-                return IntentType.RISK
-            # 缺少业务事实查询证据时，模型不能把普通输入兜底归入 CONSULT。
-            if label == "CHAT":
-                self.routing_reason = "semantic general conversation classification"
-                return IntentType.CHAT
-        except Exception:
-            pass
-        self.routing_reason = "default CHAT: no institution-specific lookup request"
+            intent = parse_intent_label(self.client().complete(messages))
+            # 规则 UNKNOWN 后不再覆盖合法语义结果；不从解释文字中猜测意图。
+            if intent is not None:
+                self.routing_source = "model"
+                self.routing_model_label = intent.value
+                self.routing_reason = f"semantic classification: {intent.value}"
+                return intent
+            self.routing_fallback_reason = "invalid_model_label"
+        except Exception as exc:
+            self.routing_fallback_reason = f"model_error:{type(exc).__name__}"
+        self.routing_source = "fallback"
+        self.routing_reason = "CHAT fallback: intent model unavailable or invalid; independent safety assessment still applies"
         return IntentType.CHAT
 
-    def _topic(self, text: str) -> str:
+    def _topic(self, text: str, intent: IntentType) -> str:
         lowered = text.lower()
         if has_high_risk_signal(lowered):
             return "safety"
-        if has_policy_signal(lowered):
+        if intent == IntentType.CONSULT:
             return "campus_policy"
-        if has_consult_signal(lowered):
+        if intent == IntentType.RISK:
             return "mental_health_support"
-        if any(word in lowered for word in GENERAL_TASK_WORDS):
+        if is_general_request(lowered):
             return "general_task"
         return "conversation"
 
@@ -790,11 +780,7 @@ def _intent(board: CollaborationBlackboard) -> IntentType:
             return IntentType.CHAT
     if has_high_risk_signal(board.user_input):
         return IntentType.RISK
-    if is_policy_request(board.user_input):
-        return IntentType.CONSULT
-    if has_consult_signal(board.user_input):
-        return IntentType.RISK
-    return IntentType.CHAT
+    return classify_intent_rules(board.user_input, []).intent or IntentType.CHAT
 
 
 def _risk_level(board: CollaborationBlackboard) -> RiskLevel:

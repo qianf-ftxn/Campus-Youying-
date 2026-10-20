@@ -33,7 +33,7 @@ class RoutingBoundaryTests(CampusBase):
         harness.save_assistant_message(self.user, out.session, out.response_text, out.current_message_id)
         return out
 
-    def test_generic_questions_do_not_call_rag_even_if_classifier_says_consult(self):
+    def test_generic_questions_do_not_call_rag(self):
         questions = ["你好", "谢谢", "你是谁", "我想咨询一下", "报销系统的代码怎么写", "帮我写一封请假邮件",
             "今天终于交完报销材料了，想分享一下", "预约理发有什么建议", "什么是机器学习", "怎么准备奖学金面试", "奖学金是什么"]
         for question in questions:
@@ -72,8 +72,36 @@ class RoutingBoundaryTests(CampusBase):
                 return "应当是 CHAT 而不是 CONSULT"
             return original(client, messages)
         with patch.object(AiClient, "_mock", mock), patch("app.services.knowledge.KnowledgeService.retrieve") as retrieve:
-            self.assertEqual(self.turn("你好啊").intent, IntentType.CHAT)
+            self.assertEqual(self.turn("门禁到啥时候才开").intent, IntentType.CHAT)
             retrieve.assert_not_called()
+
+    def test_semantic_consult_reaches_policy_retrieval_even_without_documents(self):
+        original = AiClient._mock
+        def mock(client, messages):
+            if any("意图分类器" in m.content for m in messages):
+                return "CONSULT"
+            return original(client, messages)
+        for question in ["电吹风能带回寝室不", "门禁到啥时候才开"]:
+            with self.subTest(question=question), patch.object(AiClient, "_mock", mock), patch(
+                    "app.services.knowledge.KnowledgeService.retrieve", return_value=[]) as retrieve:
+                out = self.turn(question)
+                self.assertEqual(out.intent, IntentType.CONSULT)
+                self.assertEqual(out.response_mode, "policy_answer")
+                retrieve.assert_called_once()
+                self.assertEqual(retrieve.call_args.kwargs["domain"], "policy")
+                self.assertIn("资料", out.response_text)
+
+    def test_mixed_policy_task_retrieves_and_technical_terms_do_not(self):
+        for question in ["Java课程补考怎么申请", "按学校请假规定帮我写邮件"]:
+            with self.subTest(question=question), patch("app.services.knowledge.KnowledgeService.retrieve", return_value=[]) as retrieve:
+                self.assertEqual(self.turn(question).intent, IntentType.CONSULT)
+                self.assertEqual(retrieve.call_args.kwargs["domain"], "policy")
+        for question in ["压力测试怎么做", "程序崩溃怎么修复", "帮我写一篇关于焦虑的论文"]:
+            with self.subTest(question=question), patch("app.services.knowledge.KnowledgeService.retrieve") as retrieve:
+                out = self.turn(question)
+                self.assertEqual(out.intent, IntentType.CHAT)
+                self.assertEqual(out.response_mode, "normal_chat")
+                retrieve.assert_not_called()
 
 
 class ActualStreamingTests(CampusBase):

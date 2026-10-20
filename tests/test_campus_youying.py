@@ -219,7 +219,7 @@ class RoutingTests(CampusBase):
         self.assertEqual(second.intent, IntentType.CONSULT)
         self.assertTrue(any("住宿" in r.heading for r in second.retrieved_knowledge))
 
-    def test_earlier_policy_context_survives_summary_compaction(self):
+    def test_old_summary_does_not_lock_routing_but_can_support_explicit_return(self):
         first = self.turn("我是研究生，差旅报销的伙食补助标准是什么？")
         sid = first.session.public_id
         for i in range(5):
@@ -228,6 +228,8 @@ class RoutingTests(CampusBase):
         state = RollingSummaryService(self.db, self.settings).load_state(first.session.id)
         self.assertIsNotNone(state)
         out = self.turn("那住宿呢？", sid)
+        self.assertEqual(out.intent, IntentType.CHAT)
+        out = self.turn("继续刚才的差旅报销问题，住宿费标准是什么？", sid)
         self.assertEqual(out.intent, IntentType.CONSULT)
         self.assertTrue(any("住宿" in r.heading for r in out.retrieved_knowledge))
         self.assertIn("研究生", "".join(m.content for m in out.response_messages))

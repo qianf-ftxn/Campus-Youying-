@@ -10,7 +10,7 @@ import httpx
 from app.core.config import Settings
 from app.core.enums import IntentType, RiskLevel
 from app.schemas.dtos import AiMessage
-from app.services.intent_rules import has_policy_signal, is_policy_request
+from app.services.intent_rules import has_policy_signal, is_policy_request, has_emotional_support_signal
 
 
 class PromptTemplates:
@@ -23,6 +23,11 @@ class PromptTemplates:
                 "CONSULT 仅表示需要本校权威文件才能确定的具体规定、标准、条件、办理流程、时间或联系方式。"
                 "提到校园、报销或预约不等于咨询：分享报销办完了、写报销系统代码、写请假邮件、通用建议都是 CHAT。"
                 "你好、谢谢、换个话题和通用知识默认 CHAT；不能仅因为过去问过政策就把后续所有输入判成 CONSULT。"
+                "规则未能确定的输入才交给你，CONSULT 是合法结果，不需要再次通过关键词规则。"
+                "口语问法如‘电吹风能带回寝室不’‘宿管几点锁门’也在询问校内限制或服务事实，应判 CONSULT。"
+                "混合请求若依赖本校规定，如‘按学校请假规定帮我写邮件’‘Java课程补考怎么申请’，应判 CONSULT；"
+                "纯写作如‘帮我写请假邮件’仍为 CHAT。资料是否已经入库不影响意图分类。"
+                "‘压力测试怎么做’‘程序崩溃’‘解释抑郁的含义’是通用知识；单独的压力、焦虑等词不代表本人求助。"
                 "RISK 包含本人情绪困扰求助、自杀、自残、伤人或即时危险信号。RISK 不是高风险等级。引用政策、否定危险意图与本人正在危险中应区分；确有省略业务对象的追问才结合最近话题。"
             )),
             AiMessage(role="user", content=f"最近上下文：\n{format_history(history)}\n\n当前输入：\n{user_input}"),
@@ -337,7 +342,6 @@ def mock_merge_summary(last_user_content: str) -> str:
 
 
 HIGH_RISK_WORDS = ["自杀", "自残", "不想活", "结束生命", "伤害自己", "轻生", "suicide", "kill myself", "self harm"]
-CONSULT_WORDS = ["过得不好", "心情不好", "很难受", "不开心", "想找人聊聊", "焦虑", "抑郁", "压力", "失眠", "难过", "崩溃", "痛苦", "无助", "心理", "咨询", "anxious", "depress", "stress"]
 
 
 POLICY_WORDS = ["校规", "规章", "政策", "请假", "学籍管理", "培养规定", "毕业要求", "报销规则", "报销", "差旅", "餐补", "伙食补助", "住宿费", "补贴", "奖学金", "助学金", "学籍", "休学", "复学", "培养方案", "学分要求", "毕业条件", "请假流程", "申请材料", "收费标准", "管理办法", "办事指南", "预约", "办公时间", "办理", "学生手册"]
@@ -346,7 +350,7 @@ POLICY_WORDS = ["校规", "规章", "政策", "请假", "学籍管理", "培养�
 
 def has_high_risk_signal(text: str) -> bool:
     normalized = text.lower()
-    if any(w in normalized for w in ["引用", "小说", "电影台词", "文献中的", "论文讨论"]):
+    if any(w in normalized for w in ["引用", "小说", "电影台词", "文献中的", "论文讨论", "翻译"]):
         normalized = re.sub(r'“[^”]*”|「[^」]*」|"[^"\n]*"', "", normalized)
     if not any(word in normalized for word in HIGH_RISK_WORDS):
         return False
@@ -355,6 +359,7 @@ def has_high_risk_signal(text: str) -> bool:
     if not any(word in cleaned for word in HIGH_RISK_WORDS):
         return False
     information = any(word in cleaned for word in ["预防", "防治", "政策", "规定", "论文讨论", "文献", "小说", "引用", "是什么意思", "如何识别"])
+    information = information or bool(re.fullmatch(r"(?:什么是|解释(?:一下)?|翻译(?:一下)?)(?:自杀|自残|轻生|suicide|self harm)(?:的含义)?[？?。]*", cleaned))
     personal = any(word in cleaned for word in ["我想自杀", "我想要自杀", "我要自杀", "我不想活", "想伤害自己", "我正在", "我准备", "我打算", "我决定", "我想轻生", "我想自残", "kill myself"])
     personal = personal or bool(re.search(r"我[^。！？；，]{0,12}(?:不想活|想自杀|想自残|想轻生|结束生命)", cleaned))
     return personal or not information
@@ -362,8 +367,7 @@ def has_high_risk_signal(text: str) -> bool:
 
 def has_consult_signal(text: str) -> bool:
     # 兼容原心理评估服务的函数名，仅表示情绪困扰，不再表示业务 CONSULT。
-    normalized = text.lower()
-    return any(word in normalized for word in CONSULT_WORDS if word not in {"心理", "咨询"})
+    return has_emotional_support_signal(text)
 
 
 def mock_retrieval_query(text: str) -> str:
