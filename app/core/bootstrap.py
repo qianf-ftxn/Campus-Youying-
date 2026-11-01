@@ -14,6 +14,7 @@ from app.services.knowledge import KnowledgeService
 # create_all() 只创建缺失的新表，不会给已有表补列；这里维护幂等的轻量列迁移。
 # 列迁移项按 (表名, 列名, DDL) 登记，执行前先查 information_schema，可重复执行。
 COLUMN_MIGRATIONS: list[tuple[str, str, str]] = [
+    ("knowledge_documents", "chunking_version", "ALTER TABLE knowledge_documents ADD COLUMN chunking_version VARCHAR(96) NOT NULL DEFAULT ''"),
     ("knowledge_chunks", "document_id", "ALTER TABLE knowledge_chunks ADD COLUMN document_id INT NULL"),
     ("knowledge_chunks", "parent_id", "ALTER TABLE knowledge_chunks ADD COLUMN parent_id INT NULL"),
     ("knowledge_chunks", "chunk_type", "ALTER TABLE knowledge_chunks ADD COLUMN chunk_type VARCHAR(16) NOT NULL DEFAULT 'legacy'"),
@@ -66,11 +67,12 @@ def _apply_column_migrations() -> None:
         # 新测试库由 create_all 建立；也允许已有 SQLite 开发库增补知识列。
         if engine.dialect.name == "sqlite":
             from sqlalchemy import inspect
-            columns = {c["name"] for c in inspect(engine).get_columns("knowledge_chunks")}
             with engine.begin() as connection:
-                for table, column, ddl in COLUMN_MIGRATIONS:
-                    if table == "knowledge_chunks" and "ADD COLUMN" in ddl and column not in columns:
-                        connection.execute(text(ddl))
+                for knowledge_table in ("knowledge_chunks", "knowledge_documents"):
+                    columns = {c["name"] for c in inspect(engine).get_columns(knowledge_table)}
+                    for table, column, ddl in COLUMN_MIGRATIONS:
+                        if table == knowledge_table and "ADD COLUMN" in ddl and column not in columns:
+                            connection.execute(text(ddl))
                 message_columns = {c["name"] for c in inspect(engine).get_columns("chat_messages")}
                 if "agent_trace_id" not in message_columns:
                     connection.execute(text("ALTER TABLE chat_messages ADD COLUMN agent_trace_id INT NULL"))
@@ -174,3 +176,6 @@ def seed_data(db: Session) -> None:
     except (OSError, ValueError, KeyError, TypeError) as exc:
         # 仍允许进入管理端补充文件；缺资料的咨询继续给出明确提示。
         logging.getLogger(__name__).error("官方资料包导入失败，请恢复 knowledge/xidian 或手动导入：%s", exc)
+    migrated = service.rechunk_documents()
+    if migrated["documents"]:
+        logging.getLogger(__name__).info("Knowledge chunk migration: %s", migrated)

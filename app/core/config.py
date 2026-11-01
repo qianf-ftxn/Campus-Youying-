@@ -47,7 +47,7 @@ class Settings(BaseSettings):
     judge_timeout_seconds: float = 90.0
     database_url: str = "mysql+pymysql://mindbridge:mindbridge@127.0.0.1:3306/mindbridge?charset=utf8mb4"
     chat_history_limit: int = 10
-    knowledge_top_k: int = 4
+    knowledge_top_k: int = 5
     knowledge_candidate_k: int = 16
     knowledge_chunk_size: int = 300
     knowledge_chunk_overlap: int = 40
@@ -57,6 +57,11 @@ class Settings(BaseSettings):
     knowledge_hybrid_vector_weight: float = 0.65
     knowledge_hybrid_bm25_weight: float = 0.35
     knowledge_rerank_enabled: bool = False
+    knowledge_semantic_rerank_enabled: bool = False
+    knowledge_semantic_rerank_model: str = ""
+    knowledge_semantic_rerank_candidate_limit: int = 32
+    knowledge_semantic_rerank_timeout_seconds: float = 30.
+    policy_evidence_precision_enabled: bool = False
     knowledge_vector_enabled: bool = True
     knowledge_vector_required: bool = False
     chroma_persist_dir: str = "data/chroma"

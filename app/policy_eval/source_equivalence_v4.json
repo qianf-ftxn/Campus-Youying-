@@ -1,0 +1,21 @@
+{
+  "status": "AI source equivalence audit, pending human; frozen labels and strict recall unchanged",
+  "dataset_sha256": "809a092d3de8252b9fd28f476d06cc78e3ec805bbf144b52ecea89bf87935ad2",
+  "alternative_source": {
+    "document_id": "ygb-1061-9703",
+    "version": "snapshot-20261019-94514a99064b",
+    "source_url": "https://ygb.xidian.edu.cn/info/1061/9703.htm",
+    "heading": "研究生教育管理常见手续办理流程介绍 / 一、校外住宿手续",
+    "content": "一、校外住宿手续\n\n1.适用情况\n\n（1）在学校（含异地研究院）或学校联系的校外学习实践单位安排的场所之外连续居住超过14天。\n\n（2）研究生校外住宿申请按学年办理，有效期一年。上一学年已办理校外住宿手续新学年继续校外住宿的，或有效期内校外住宿地点变更的，须重新申请。\n\n2.办理流程\n\n（1）移动端：“西安电子科技大学”微信企业号——移动门户——搜索“研究生校外住宿备案表”。\n\n（2）PC端：一网通办（https://ywtb.xidian.edu.cn/）——搜索“研究生校外住宿备案表”。\n\n3.审批流程（导师—辅导员—学院党委副书记）\n\n（1）移动端：“西安电子科技大学”微信企业号——消息服务。\n\n（2）PC端：一网通办（https://ywtb.xidian.edu.cn/）——任务中心——待我审批。"
+  },
+  "cases": [
+    {
+      "case_id": "C4-M06",
+      "finding": "Strict designated-source miss only: returned process guide repeats the exclusion for school/practice-unit-arranged housing. Do not call it missing the applicable definition."
+    },
+    {
+      "case_id": "C4-X01",
+      "finding": "Returned guide covers housing duration/scope and approval path; strict miss overstates missing scope. It does not contain the declared family informed-consent upload step, so some reference detail remains absent from the returned housing passage."
+    }
+  ]
+}

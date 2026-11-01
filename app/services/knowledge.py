@@ -16,6 +16,10 @@ from sqlalchemy.orm import Session
 
 from app.core.config import Settings
 from app.models.entities import KnowledgeChunk, KnowledgeDocument
+from app.services.knowledge_chunking import (
+    CHUNKING_VERSION, child_heading, child_sections, chunk_text, chunking_signature,
+    knowledge_heading, parent_sections,
+)
 from app.services.vector_store import FALLBACK_RETRIEVAL_LABEL, PRIMARY_RETRIEVAL_LABEL, ChromaKnowledgeStore
 
 logger = logging.getLogger(__name__)
@@ -52,7 +56,60 @@ class KnowledgeService:
         self.last_retrieval: dict = {}
 
     def count(self) -> int:
-        return self.db.query(KnowledgeChunk).count()
+        return self.db.query(KnowledgeChunk).filter(KnowledgeChunk.chunk_type.in_(["parent", "child", "legacy"])).count()
+
+    @property
+    def chunking_version(self) -> str:
+        return chunking_signature(self.settings.knowledge_parent_chunk_size,
+                                  self.settings.knowledge_chunk_size, self.settings.knowledge_chunk_overlap)
+
+    def _create_document_chunks(self, document: KnowledgeDocument) -> list[KnowledgeChunk]:
+        rows = []
+        for index, (heading, body, page) in enumerate(parent_sections(document.content, self.settings.knowledge_parent_chunk_size)):
+            parent = KnowledgeChunk(source=document.source, source_index=index, content=body, document_id=document.id,
+                chunk_type="parent", heading=knowledge_heading(document.title, heading), page_start=page,
+                domain=document.domain, school=document.school, version=document.version)
+            self.db.add(parent)
+            self.db.flush()
+            rows.append(parent)
+            for child_index, child in enumerate(child_sections(body, self.settings.knowledge_chunk_size, self.settings.knowledge_chunk_overlap)):
+                row = KnowledgeChunk(source=document.source, source_index=child_index, content=child, document_id=document.id,
+                    parent_id=parent.id, chunk_type="child", heading=child_heading(parent.heading, child),
+                    page_start=page, domain=document.domain, school=document.school, version=document.version)
+                self.db.add(row)
+                rows.append(row)
+        document.chunking_version = self.chunking_version
+        return rows
+
+    def rechunk_documents(self, document_ids: list[int] | None = None) -> dict:
+        """Replace SQL generations atomically, retaining old chunk IDs for audit.
+
+        _ensure_vector_index later builds a staged index for the new IDs. If vectors
+        are unavailable, the new SQL/BM25 representation can still serve retrieval.
+        """
+        query = self.db.query(KnowledgeDocument)
+        if document_ids is not None:
+            query = query.filter(KnowledgeDocument.id.in_(document_ids))
+        documents = query.filter(KnowledgeDocument.chunking_version != self.chunking_version).order_by(
+            KnowledgeDocument.id).with_for_update().all()
+        retired, created = 0, 0
+        try:
+            for document in documents:
+                old = self.db.query(KnowledgeChunk).filter(KnowledgeChunk.document_id == document.id,
+                    KnowledgeChunk.chunk_type.in_(["parent", "child"])).all()
+                rows = self._create_document_chunks(document)
+                if old and not rows:
+                    raise ValueError(f"文档 {document.id} 重新切块没有正文，保留旧切块。")
+                for row in old:
+                    row.chunk_type = "retired_" + row.chunk_type
+                retired += len(old)
+                created += len(rows)
+            self.db.commit()
+        except Exception:
+            self.db.rollback()
+            raise
+        return {"documents": len(documents), "createdChunks": created, "retiredChunks": retired,
+                "chunkingVersion": self.chunking_version}
 
     def remove_demo_documents(self) -> int:
         """移除旧演示文档及父子块；保留真实上传资料和对话审计。"""
@@ -89,7 +146,8 @@ class KnowledgeService:
                 existing.school = school
                 self.db.query(KnowledgeChunk).filter_by(document_id=existing.id).update({"school": school})
                 self.db.commit()
-            return self.db.query(KnowledgeChunk).filter_by(document_id=existing.id).count()
+            return self.db.query(KnowledgeChunk).filter(KnowledgeChunk.document_id == existing.id,
+                KnowledgeChunk.chunk_type.in_(["parent", "child"])).count()
         return self.ingest(source, content, **metadata)
 
     def ingest(self, source: str, content: str, *, domain: str = "policy", title: str = "",
@@ -114,7 +172,8 @@ class KnowledgeService:
                 raise ValueError("该来源和版本已属于其他学校或领域，请使用不同来源名或版本号。")
             if existing.content_hash != digest:
                 raise ValueError("该版本已存在且内容不同，请使用新的版本号。")
-            return self.db.query(KnowledgeChunk).filter_by(document_id=existing.id).count()
+            return self.db.query(KnowledgeChunk).filter(KnowledgeChunk.document_id == existing.id,
+                KnowledgeChunk.chunk_type.in_(["parent", "child"])).count()
         # 待生效文件先保存为草稿，避免提前取代当前适用版本。
         today = campus_today()
         if effective_on and effective_on > today and status == "ACTIVE":
@@ -132,21 +191,7 @@ class KnowledgeService:
         try:
             self.db.add(document)
             self.db.flush()
-            rows = []
-            for index, (heading, body, page) in enumerate(sections):
-                parent = KnowledgeChunk(source=source, source_index=index, content=body, document_id=document.id,
-                    chunk_type="parent", heading=f"{title} / {heading}"[:512], page_start=page,
-                    domain=domain, school=document.school, version=version)
-                self.db.add(parent)
-                self.db.flush()
-                rows.append(parent)
-                for child_index, child in enumerate(child_sections(body, self.settings.knowledge_chunk_size,
-                                                                         self.settings.knowledge_chunk_overlap)):
-                    row = KnowledgeChunk(source=source, source_index=child_index, content=child,
-                        document_id=document.id, parent_id=parent.id, chunk_type="child", heading=parent.heading,
-                        page_start=page, domain=domain, school=document.school, version=version)
-                    self.db.add(row)
-                    rows.append(row)
+            rows = self._create_document_chunks(document)
             if status == "ACTIVE":
                 self._archive_other_versions(document)
             self.db.flush()
@@ -294,10 +339,20 @@ class KnowledgeService:
                 doc.is_demo, doc.id, [key for key, value in channels.items() if pid in value],
                 sorted(matches.get(pid, set()))))
         results.sort(key=lambda item: (-item.score, item.chunk_id or 0))
+        semantic_error = ""
+        if self.settings.knowledge_semantic_rerank_enabled and results:
+            try:
+                from app.services.knowledge_reranking import semantic_rerank
+                results = semantic_rerank(query, results, self.settings, top_k)
+            except Exception as exc:
+                # A reranker outage must not remove otherwise available evidence.
+                semantic_error = type(exc).__name__
         results = results[:top_k]
         self.last_retrieval = {"query": query, "domain": domain, "school": school,
             "path": "hybrid_parent_child" if any(k.endswith("vector") for k in active) else "bm25_parent_child",
             "vectorError": vector_error or getattr(self.vector_store, "error", ""),
+            "semanticRerankEnabled": self.settings.knowledge_semantic_rerank_enabled,
+            "semanticRerankError": semantic_error,
             "channels": {key: {str(pid): score for pid, score in value.items()} for key, value in channels.items()},
             "selectedParents": [r.chunk_id for r in results], "rerankEnabled": self.settings.knowledge_rerank_enabled,
             "elapsedMs": round((perf_counter() - started) * 1000, 2)}
@@ -332,6 +387,7 @@ class KnowledgeService:
     def rebuild_vector_index(self) -> int:
         if not self.vector_store.can_embed:
             raise RuntimeError(self.vector_store.error or "向量服务不可用。")
+        self.rechunk_documents()
         rows = self._all_index_rows()
         self._sync_vector_chunks(rows)
         self.db.commit()
@@ -358,6 +414,9 @@ class KnowledgeService:
             except Exception as exc:
                 error = str(exc)
         return {"primaryRetrieval": PRIMARY_RETRIEVAL_LABEL, "fallbackRetrieval": FALLBACK_RETRIEVAL_LABEL,
+            "chunkingVersion": self.chunking_version,
+            "outdatedChunkDocuments": self.db.query(KnowledgeDocument).filter(KnowledgeDocument.chunking_version != self.chunking_version).count(),
+            "retiredChunks": self.db.query(KnowledgeChunk).filter(KnowledgeChunk.chunk_type.in_(["retired_parent", "retired_child"])).count(),
             "activePolicyDocuments": len(self._eligible_documents("policy", self.settings.campus_name)),
             "databaseChunks": self.count(), "parentChunks": self.db.query(KnowledgeChunk).filter_by(chunk_type="parent").count(),
             "childChunks": self.db.query(KnowledgeChunk).filter_by(chunk_type="child").count(),
@@ -386,99 +445,17 @@ class KnowledgeService:
         if d is None:
             raise LookupError("文档不存在。")
         payload = self._document_payload(d)
+        payload["chunkingVersion"] = d.chunking_version
         payload["chunks"] = [{"id": r.id, "type": r.chunk_type, "parentId": r.parent_id,
             "heading": r.heading, "page": r.page_start, "content": r.content} for r in
-            self.db.query(KnowledgeChunk).filter_by(document_id=d.id).order_by(KnowledgeChunk.id).all()]
+            self.db.query(KnowledgeChunk).filter(KnowledgeChunk.document_id == d.id,
+                KnowledgeChunk.chunk_type.in_(["parent", "child"])).order_by(KnowledgeChunk.id).all()]
         return payload
 
 
 def first_title(content: str) -> str:
     match = re.search(r"^#{1,6}\s+(.+)$", content, re.M)
     return match.group(1).strip() if match else ""
-
-
-def parent_sections(content: str, target: int) -> list[tuple[str, str, int | None]]:
-    """父块按条款/主标题组织，三级以下标题留在父块内；PDF 页码只定位不强制断条。"""
-    sections = []
-    heading, page, start_page, lines = "正文", None, None, []
-
-    def flush_section():
-        nonlocal lines
-        body = "\n".join(lines).strip()
-        if body:
-            sections.append((heading, body, start_page))
-        lines = []
-
-    for line in content.replace("\r\n", "\n").splitlines():
-        page_marker = re.match(r"<!-- page:(\d+) -->", line.strip())
-        if page_marker:
-            page = int(page_marker.group(1))
-            continue
-        major = re.match(r"^(?:#{1,2}\s+|第[一二三四五六七八九十百零\d]+[章节条])", line)
-        if major:
-            flush_section()
-            heading = line.lstrip("# ")[:200]
-            start_page = page
-            # Markdown 标题正文在 heading 中保留；不产生只有标题的空父块。
-            if not line.startswith("#"):
-                lines.append(line)
-        else:
-            if not lines:
-                start_page = page
-            lines.append(line)
-    flush_section()
-    result = []
-    for heading, body, page in sections:
-        paragraphs = re.split(r"\n\s*\n", body)
-        pending = []
-        for paragraph in paragraphs:
-            if not paragraph.strip():
-                continue
-            units = [paragraph] if "|" in paragraph else re.split(r"(?<=[。！？；])(?=.)", paragraph)
-            for unit in units:
-                if pending and sum(map(len, pending)) + len(unit) > max(100, target):
-                    result.append((heading, "\n\n".join(pending), page))
-                    pending = []
-                pending.append(unit)
-        if pending:
-            result.append((heading, "\n\n".join(pending), page))
-    return result
-
-
-def child_sections(content: str, size: int, overlap: int) -> list[str]:
-    size = max(40, size)
-    overlap = min(max(0, overlap), size // 3)
-    units = re.split(r"\n\s*\n|(?<=[。！？；])", content)
-    result, pending = [], ""
-    for unit in units:
-        unit = unit.strip()
-        if not unit:
-            continue
-        # 表格不按字数撕裂，正文长句才使用有重叠的滑窗。
-        if "|" in unit:
-            if pending:
-                result.append(pending)
-                pending = ""
-            result.append(unit)
-        elif len(unit) > size:
-            if pending:
-                result.append(pending)
-                pending = ""
-            result.extend(chunk_text(unit, size, overlap))
-        elif pending and len(pending) + len(unit) > size:
-            result.append(pending)
-            pending = unit
-        else:
-            pending += ("\n" if pending else "") + unit
-    if pending:
-        result.append(pending)
-    return result or [content]
-
-
-def chunk_text(content: str, size: int, overlap: int) -> list[str]:
-    text = re.sub(r"\s+", " ", content or "").strip()
-    step = max(1, size - overlap)
-    return [text[start:start + size] for start in range(0, len(text), step)] if text else []
 
 
 def hybrid_score(query: str, content: str) -> float:

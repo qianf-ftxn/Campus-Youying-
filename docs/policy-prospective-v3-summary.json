@@ -1,0 +1,241 @@
+{
+  "status": "independent_model_auto_judged_pending_human",
+  "dataset_sha256": "3c1f2d4f68b7af648893e40fdd37d11e57dc97c1ef7ac1406d56ee5d71e119a0",
+  "frozen_protocol_sha256": "9c68b0cdf4b1136bd2ff8af4d6e384dbff8acf3913fcb022e11ad242ba3aca26",
+  "prospective_cases": 60,
+  "answerable_cases": 48,
+  "families": 12,
+  "review_status": {
+    "pending_human": 60
+  },
+  "summary": {
+    "archived_flat_hybrid": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "necessary_evidence_recall": 0.9895833333333334,
+      "evidence_complete_rate": 0.9791666666666666,
+      "answer_accuracy_answerable": 0.9583333333333334,
+      "answer_accuracy_all": 0.95,
+      "grounded_answer_accuracy_all": 0.25,
+      "hit_at_5": 1,
+      "mrr_at_5": 0.9375,
+      "faithfulness": 0.726547619047619,
+      "answer_point_coverage": 0.9805555555555555,
+      "answer_relevancy": 0.8028713584465691,
+      "faithfulness_raw_extractor": 0.7286507936507937,
+      "false_refusal": 0,
+      "unanswerable_handled_correctly": 0.9166666666666666,
+      "abstention_correct": 1,
+      "clarification_correct": 0.5,
+      "faithfulness_scored_cases": 60,
+      "mean_context_estimated_tokens": 3188.516666666667,
+      "generation_prompt_tokens": 149466,
+      "generation_completion_tokens": 7404,
+      "generation_http_attempts": 60,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "necessary_evidence_recall": 1,
+      "evidence_complete_rate": 1,
+      "answer_accuracy_answerable": 0.9583333333333334,
+      "answer_accuracy_all": 0.9333333333333333,
+      "grounded_answer_accuracy_all": 0.36666666666666664,
+      "hit_at_5": 1,
+      "mrr_at_5": 1.0,
+      "faithfulness": 0.7580291005291006,
+      "answer_point_coverage": 0.9722222222222222,
+      "answer_relevancy": 0.8038362430276867,
+      "faithfulness_raw_extractor": 0.7508068783068783,
+      "false_refusal": 0,
+      "unanswerable_handled_correctly": 0.8333333333333334,
+      "abstention_correct": 1,
+      "clarification_correct": 0,
+      "faithfulness_scored_cases": 60,
+      "mean_context_estimated_tokens": 2654.9333333333334,
+      "generation_prompt_tokens": 125976,
+      "generation_completion_tokens": 7278,
+      "generation_http_attempts": 60,
+      "generation_truncated": 0
+    },
+    "parent_semantic_v3": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "necessary_evidence_recall": 1,
+      "evidence_complete_rate": 1,
+      "answer_accuracy_answerable": 0.9375,
+      "answer_accuracy_all": 0.95,
+      "grounded_answer_accuracy_all": 0.6333333333333333,
+      "hit_at_5": 1,
+      "mrr_at_5": 1.0,
+      "faithfulness": 0.8676515151515152,
+      "answer_point_coverage": 0.9833333333333333,
+      "answer_relevancy": 0.8148997097518108,
+      "faithfulness_raw_extractor": 0.8597150072150073,
+      "false_refusal": 0,
+      "unanswerable_handled_correctly": 1,
+      "abstention_correct": 1,
+      "clarification_correct": 1,
+      "faithfulness_scored_cases": 60,
+      "mean_context_estimated_tokens": 1456.95,
+      "generation_prompt_tokens": 83267,
+      "generation_completion_tokens": 4493,
+      "generation_http_attempts": 60,
+      "generation_truncated": 0
+    }
+  },
+  "cost": {
+    "archived_flat_hybrid": {
+      "generation_input_tokens": 149466,
+      "generation_output_tokens": 7404,
+      "reranking_input_tokens": 0,
+      "reranking_output_tokens": 0,
+      "inference_input_total": 149466,
+      "inference_output_total": 7404,
+      "generation_tasks": 60,
+      "reranking_tasks": 0,
+      "excludes": [
+        "evaluation/judge calls",
+        "embedding",
+        "failed or rejected attempts",
+        "currency pricing"
+      ]
+    },
+    "parent_child_hybrid": {
+      "generation_input_tokens": 125976,
+      "generation_output_tokens": 7278,
+      "reranking_input_tokens": 0,
+      "reranking_output_tokens": 0,
+      "inference_input_total": 125976,
+      "inference_output_total": 7278,
+      "generation_tasks": 60,
+      "reranking_tasks": 0,
+      "excludes": [
+        "evaluation/judge calls",
+        "embedding",
+        "failed or rejected attempts",
+        "currency pricing"
+      ]
+    },
+    "parent_semantic_v3": {
+      "generation_input_tokens": 83267,
+      "generation_output_tokens": 4493,
+      "reranking_input_tokens": 419541,
+      "reranking_output_tokens": 5121,
+      "inference_input_total": 502808,
+      "inference_output_total": 9614,
+      "generation_tasks": 60,
+      "reranking_tasks": 60,
+      "excludes": [
+        "evaluation/judge calls",
+        "embedding",
+        "failed or rejected attempts",
+        "currency pricing"
+      ]
+    }
+  },
+  "paired_intervals": {
+    "parent_child_hybrid": {
+      "answer_accuracy_answerable": {
+        "candidate_minus_baseline": 0.0,
+        "conditional_95pct_family_bootstrap_interval": [
+          0.0,
+          0.0
+        ],
+        "families": 12,
+        "replicates": 5000,
+        "scope": "conditional on these AI annotations and model verdicts; does not include annotation/judge uncertainty"
+      },
+      "necessary_evidence_recall": {
+        "candidate_minus_baseline": 0.01041666666666663,
+        "conditional_95pct_family_bootstrap_interval": [
+          0.0,
+          0.03125
+        ],
+        "families": 12,
+        "replicates": 5000,
+        "scope": "conditional on these AI annotations and model verdicts; does not include annotation/judge uncertainty"
+      },
+      "faithfulness": {
+        "candidate_minus_baseline": 0.031481481481481444,
+        "conditional_95pct_family_bootstrap_interval": [
+          -0.03138936052563093,
+          0.09212077572964669
+        ],
+        "families": 12,
+        "replicates": 5000,
+        "scope": "conditional on these AI annotations and model verdicts; does not include annotation/judge uncertainty"
+      }
+    },
+    "parent_semantic_v3": {
+      "answer_accuracy_answerable": {
+        "candidate_minus_baseline": -0.02083333333333337,
+        "conditional_95pct_family_bootstrap_interval": [
+          -0.08333333333333337,
+          0.04166666666666674
+        ],
+        "families": 12,
+        "replicates": 5000,
+        "scope": "conditional on these AI annotations and model verdicts; does not include annotation/judge uncertainty"
+      },
+      "necessary_evidence_recall": {
+        "candidate_minus_baseline": 0.01041666666666663,
+        "conditional_95pct_family_bootstrap_interval": [
+          0.0,
+          0.03125
+        ],
+        "families": 12,
+        "replicates": 5000,
+        "scope": "conditional on these AI annotations and model verdicts; does not include annotation/judge uncertainty"
+      },
+      "faithfulness": {
+        "candidate_minus_baseline": 0.14110389610389595,
+        "conditional_95pct_family_bootstrap_interval": [
+          0.07293292906388137,
+          0.21339948437577752
+        ],
+        "families": 12,
+        "replicates": 5000,
+        "scope": "conditional on these AI annotations and model verdicts; does not include annotation/judge uncertainty"
+      }
+    }
+  },
+  "paired_errors": {
+    "parent_child_hybrid": {
+      "baseline_only_correct": [
+        "H-U09"
+      ],
+      "candidate_only_correct": []
+    },
+    "parent_semantic_v3": {
+      "baseline_only_correct": [
+        "H-X06",
+        "H-X12"
+      ],
+      "candidate_only_correct": [
+        "H-X02",
+        "H-U08"
+      ]
+    }
+  },
+  "returned_models": {
+    "generation.jsonl": {
+      "deepseek-v4-flash-0731": 180
+    },
+    "quality.jsonl": {
+      "qwen3.8-flash": 180
+    },
+    "faithfulness.jsonl": {
+      "qwen3.8-flash": 174,
+      "assembled repair": 6
+    }
+  },
+  "evidence_artifact_sha256": {
+    "target/policy-pilot/rigorous-v3/holdout/report.json": "2278ce2b1b0f863537bfcdcb4af5fb826b24bc31a1276619610bdcc2bc0115da",
+    "target/policy-pilot/rigorous-v3/holdout/retrieval.json": "06b1b54ba77d3f7527796aaa8ef0e234ded69c2ad165ba5703e14927112e7fd7",
+    "target/policy-pilot/rigorous-v3/holdout/generation.jsonl": "9b16f8df344b95f9b8133375cf03c333f0ecc67a9cc877ff5508ccebe5afdf0a",
+    "target/policy-pilot/rigorous-v3/holdout/quality.jsonl": "727ab003492fc2658b5e24f115aeb0fbf2ba0f740f0556d6c867a830b2a28ea4",
+    "target/policy-pilot/rigorous-v3/holdout/faithfulness.jsonl": "424aa4105a8a3d873c63be78b04a292cecc4aeb55916d99dc60f040122f84a13"
+  }
+}

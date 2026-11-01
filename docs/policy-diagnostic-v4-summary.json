@@ -1,0 +1,998 @@
+{
+  "status": "AI scoring, all source/business annotations pending human; controlled offline diagnostics",
+  "dataset_audit": {
+    "old60": {
+      "cases": 60,
+      "answerable": 48,
+      "cross_document_cases": 0,
+      "gold_unit_counts": {
+        "1": 41,
+        "2": 7
+      },
+      "history_lengths": {
+        "1": 12
+      }
+    },
+    "hard32": {
+      "cases": 32,
+      "answerable": 26,
+      "cross_document_cases": 19,
+      "gold_unit_counts": {
+        "4": 5,
+        "2": 12,
+        "3": 3,
+        "1": 6
+      },
+      "history_lengths": {
+        "5": 2,
+        "4": 6
+      }
+    }
+  },
+  "ablation_original": {
+    "no_context_strict": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "correct_answerable": 14,
+      "correct_negative": 11,
+      "point_coverage_answerable": 0.5034722222222222,
+      "generation_truncated": 0
+    },
+    "oracle_evidence": {
+      "cases": 48,
+      "answerable_cases": 48,
+      "correct_answerable": 44,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.9722222222222222,
+      "generation_truncated": 0
+    },
+    "parametric_probe": {
+      "cases": 48,
+      "answerable_cases": 48,
+      "correct_answerable": 12,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.5104166666666666,
+      "generation_truncated": 1
+    },
+    "parent_child_hybrid": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "correct_answerable": 46,
+      "correct_negative": 10,
+      "point_coverage_answerable": 0.9861111111111112,
+      "generation_truncated": 0
+    },
+    "random_context": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "correct_answerable": 3,
+      "correct_negative": 10,
+      "point_coverage_answerable": 0.09375,
+      "generation_truncated": 0
+    }
+  },
+  "ablation_audited": {
+    "no_context_strict": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "correct_answerable": 14,
+      "correct_negative": 11,
+      "point_coverage_answerable": 0.5138888888888888,
+      "generation_truncated": 0
+    },
+    "oracle_evidence": {
+      "cases": 48,
+      "answerable_cases": 48,
+      "correct_answerable": 44,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.9791666666666666,
+      "generation_truncated": 0
+    },
+    "oracle_source_blocks": {
+      "cases": 48,
+      "answerable_cases": 48,
+      "correct_answerable": 44,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.9861111111111112,
+      "generation_truncated": 0
+    },
+    "parametric_probe": {
+      "cases": 48,
+      "answerable_cases": 48,
+      "correct_answerable": 10,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.4774305555555555,
+      "generation_truncated": 1
+    },
+    "parent_child_hybrid": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "correct_answerable": 45,
+      "correct_negative": 10,
+      "point_coverage_answerable": 0.9930555555555556,
+      "generation_truncated": 0
+    },
+    "random_context": {
+      "cases": 60,
+      "answerable_cases": 48,
+      "correct_answerable": 4,
+      "correct_negative": 10,
+      "point_coverage_answerable": 0.10069444444444445,
+      "generation_truncated": 0
+    }
+  },
+  "ablation_paired": {
+    "no_context_strict": {
+      "cases": 48,
+      "baseline_correct": 45,
+      "variant_correct": 14,
+      "variant_only": [],
+      "baseline_only": [
+        "H-C02",
+        "H-C04",
+        "H-C05",
+        "H-C06",
+        "H-C07",
+        "H-C08",
+        "H-C09",
+        "H-C11",
+        "H-C12",
+        "H-D02",
+        "H-D04",
+        "H-D05",
+        "H-D06",
+        "H-D07",
+        "H-D12",
+        "H-M01",
+        "H-M02",
+        "H-M03",
+        "H-M04",
+        "H-M05",
+        "H-M06",
+        "H-M07",
+        "H-M08",
+        "H-M11",
+        "H-M12",
+        "H-X01",
+        "H-X04",
+        "H-X06",
+        "H-X07",
+        "H-X10",
+        "H-X11"
+      ],
+      "delta": -0.6458333333333334,
+      "conditional_family_bootstrap_95": [
+        -0.7916666666666666,
+        -0.4791666666666667
+      ]
+    },
+    "oracle_evidence": {
+      "cases": 48,
+      "baseline_correct": 45,
+      "variant_correct": 44,
+      "variant_only": [
+        "H-X02"
+      ],
+      "baseline_only": [
+        "H-M07",
+        "H-X10"
+      ],
+      "delta": -0.020833333333333332,
+      "conditional_family_bootstrap_95": [
+        -0.08333333333333333,
+        0.041666666666666664
+      ]
+    },
+    "oracle_source_blocks": {
+      "cases": 48,
+      "baseline_correct": 45,
+      "variant_correct": 44,
+      "variant_only": [
+        "H-M09"
+      ],
+      "baseline_only": [
+        "H-C02",
+        "H-X06"
+      ],
+      "delta": -0.020833333333333332,
+      "conditional_family_bootstrap_95": [
+        -0.08333333333333333,
+        0.041666666666666664
+      ]
+    },
+    "parametric_probe": {
+      "cases": 48,
+      "baseline_correct": 45,
+      "variant_correct": 10,
+      "variant_only": [
+        "H-X02"
+      ],
+      "baseline_only": [
+        "H-C03",
+        "H-C05",
+        "H-C06",
+        "H-C07",
+        "H-C09",
+        "H-C11",
+        "H-C12",
+        "H-D02",
+        "H-D03",
+        "H-D04",
+        "H-D05",
+        "H-D06",
+        "H-D07",
+        "H-D09",
+        "H-D10",
+        "H-D11",
+        "H-D12",
+        "H-M01",
+        "H-M02",
+        "H-M03",
+        "H-M04",
+        "H-M05",
+        "H-M06",
+        "H-M07",
+        "H-M08",
+        "H-M11",
+        "H-M12",
+        "H-X01",
+        "H-X03",
+        "H-X04",
+        "H-X05",
+        "H-X06",
+        "H-X07",
+        "H-X08",
+        "H-X10",
+        "H-X11"
+      ],
+      "delta": -0.7291666666666666,
+      "conditional_family_bootstrap_95": [
+        -0.875,
+        -0.5833333333333334
+      ]
+    },
+    "random_context": {
+      "cases": 48,
+      "baseline_correct": 45,
+      "variant_correct": 4,
+      "variant_only": [
+        "H-X02"
+      ],
+      "baseline_only": [
+        "H-C01",
+        "H-C02",
+        "H-C03",
+        "H-C04",
+        "H-C05",
+        "H-C06",
+        "H-C07",
+        "H-C08",
+        "H-C09",
+        "H-C12",
+        "H-D01",
+        "H-D02",
+        "H-D03",
+        "H-D04",
+        "H-D05",
+        "H-D06",
+        "H-D07",
+        "H-D08",
+        "H-D09",
+        "H-D10",
+        "H-D11",
+        "H-D12",
+        "H-M01",
+        "H-M02",
+        "H-M03",
+        "H-M04",
+        "H-M05",
+        "H-M06",
+        "H-M07",
+        "H-M08",
+        "H-M11",
+        "H-M12",
+        "H-X01",
+        "H-X03",
+        "H-X04",
+        "H-X05",
+        "H-X06",
+        "H-X07",
+        "H-X08",
+        "H-X09",
+        "H-X10",
+        "H-X11"
+      ],
+      "delta": -0.8541666666666666,
+      "conditional_family_bootstrap_95": [
+        -0.9583333333333334,
+        -0.75
+      ]
+    }
+  },
+  "challenge_original": {
+    "archived_flat_hybrid": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "necessary_evidence_recall": 0.6923076923076923,
+      "evidence_complete_rate": 0.5,
+      "answer_accuracy_answerable": 0.7307692307692307,
+      "answer_accuracy_all": 0.6875,
+      "grounded_answer_accuracy_all": 0.15625,
+      "hit_at_5": 0.9615384615384616,
+      "mrr_at_5": 0.8782051282051282,
+      "faithfulness": 0.683237509018759,
+      "answer_point_coverage": 0.859375,
+      "answer_relevancy": 0.7542829501069217,
+      "faithfulness_raw_extractor": 0.6807517135642136,
+      "false_refusal": 0.038461538461538464,
+      "unanswerable_handled_correctly": 0.5,
+      "abstention_correct": 1,
+      "clarification_correct": 0,
+      "faithfulness_scored_cases": 32,
+      "mean_context_estimated_tokens": 3081.21875,
+      "generation_prompt_tokens": 76780,
+      "generation_completion_tokens": 7020,
+      "generation_http_attempts": 32,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "necessary_evidence_recall": 0.7692307692307693,
+      "evidence_complete_rate": 0.5769230769230769,
+      "answer_accuracy_answerable": 0.7692307692307693,
+      "answer_accuracy_all": 0.71875,
+      "grounded_answer_accuracy_all": 0.09375,
+      "hit_at_5": 0.9615384615384616,
+      "mrr_at_5": 0.9358974358974359,
+      "faithfulness": 0.7240526834276835,
+      "answer_point_coverage": 0.8489583333333334,
+      "answer_relevancy": 0.7612530211984008,
+      "faithfulness_raw_extractor": 0.7214485167610167,
+      "false_refusal": 0.038461538461538464,
+      "unanswerable_handled_correctly": 0.5,
+      "abstention_correct": 0.6666666666666666,
+      "clarification_correct": 0.3333333333333333,
+      "faithfulness_scored_cases": 32,
+      "mean_context_estimated_tokens": 2367.5,
+      "generation_prompt_tokens": 61239,
+      "generation_completion_tokens": 7357,
+      "generation_http_attempts": 32,
+      "generation_truncated": 1
+    },
+    "rerank_only": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "necessary_evidence_recall": 0.967948717948718,
+      "evidence_complete_rate": 0.9230769230769231,
+      "answer_accuracy_answerable": 0.9230769230769231,
+      "answer_accuracy_all": 0.8125,
+      "grounded_answer_accuracy_all": 0.21875,
+      "hit_at_5": 1,
+      "mrr_at_5": 1.0,
+      "faithfulness": 0.7709957577145077,
+      "answer_point_coverage": 0.90625,
+      "answer_relevancy": 0.759479167875853,
+      "faithfulness_raw_extractor": 0.7709957577145077,
+      "false_refusal": 0,
+      "unanswerable_handled_correctly": 0.3333333333333333,
+      "abstention_correct": 0.6666666666666666,
+      "clarification_correct": 0,
+      "faithfulness_scored_cases": 32,
+      "mean_context_estimated_tokens": 2177.125,
+      "generation_prompt_tokens": 57244,
+      "generation_completion_tokens": 7416,
+      "generation_http_attempts": 32,
+      "generation_truncated": 0
+    },
+    "precision_only": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "necessary_evidence_recall": 0.7692307692307693,
+      "evidence_complete_rate": 0.5769230769230769,
+      "answer_accuracy_answerable": 0.6538461538461539,
+      "answer_accuracy_all": 0.6875,
+      "grounded_answer_accuracy_all": 0.28125,
+      "hit_at_5": 0.9615384615384616,
+      "mrr_at_5": 0.9166666666666666,
+      "faithfulness": 0.7899896978021977,
+      "answer_point_coverage": 0.8697916666666666,
+      "answer_relevancy": 0.7604508702296096,
+      "faithfulness_raw_extractor": 0.7790521978021978,
+      "false_refusal": 0.07692307692307693,
+      "unanswerable_handled_correctly": 0.8333333333333334,
+      "abstention_correct": 1,
+      "clarification_correct": 0.6666666666666666,
+      "faithfulness_scored_cases": 32,
+      "mean_context_estimated_tokens": 2367.5,
+      "generation_prompt_tokens": 64791,
+      "generation_completion_tokens": 6110,
+      "generation_http_attempts": 32,
+      "generation_truncated": 1
+    },
+    "parent_semantic_v3": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "necessary_evidence_recall": 0.967948717948718,
+      "evidence_complete_rate": 0.9230769230769231,
+      "answer_accuracy_answerable": 0.9615384615384616,
+      "answer_accuracy_all": 0.875,
+      "grounded_answer_accuracy_all": 0.34375,
+      "hit_at_5": 1,
+      "mrr_at_5": 1.0,
+      "faithfulness": 0.7837212266899767,
+      "answer_point_coverage": 0.9270833333333334,
+      "answer_relevancy": 0.7691312394606108,
+      "faithfulness_raw_extractor": 0.7785128933566433,
+      "false_refusal": 0,
+      "unanswerable_handled_correctly": 0.5,
+      "abstention_correct": 0.6666666666666666,
+      "clarification_correct": 0.3333333333333333,
+      "faithfulness_scored_cases": 32,
+      "mean_context_estimated_tokens": 2177.125,
+      "generation_prompt_tokens": 60796,
+      "generation_completion_tokens": 5954,
+      "generation_http_attempts": 32,
+      "generation_truncated": 0
+    }
+  },
+  "challenge_audited": {
+    "archived_flat_hybrid": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "correct_answerable": 19,
+      "correct_negative": 4,
+      "point_coverage_answerable": 0.891025641025641,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "correct_answerable": 19,
+      "correct_negative": 3,
+      "point_coverage_answerable": 0.8782051282051282,
+      "generation_truncated": 1
+    },
+    "parent_semantic_v3": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "correct_answerable": 25,
+      "correct_negative": 4,
+      "point_coverage_answerable": 0.9871794871794872,
+      "generation_truncated": 0
+    },
+    "precision_only": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "correct_answerable": 18,
+      "correct_negative": 5,
+      "point_coverage_answerable": 0.8782051282051282,
+      "generation_truncated": 1
+    },
+    "rerank_only": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "correct_answerable": 24,
+      "correct_negative": 4,
+      "point_coverage_answerable": 0.9615384615384616,
+      "generation_truncated": 0
+    }
+  },
+  "challenge_paired": {
+    "archived_flat_hybrid": {
+      "cases": 26,
+      "baseline_correct": 19,
+      "variant_correct": 19,
+      "variant_only": [
+        "C4-M04",
+        "C4-X01"
+      ],
+      "baseline_only": [
+        "C4-B02",
+        "C4-X08"
+      ],
+      "delta": 0
+    },
+    "rerank_only": {
+      "cases": 26,
+      "baseline_correct": 19,
+      "variant_correct": 24,
+      "variant_only": [
+        "C4-B03",
+        "C4-B04",
+        "C4-X01",
+        "C4-X06",
+        "C4-X09",
+        "C4-X11"
+      ],
+      "baseline_only": [
+        "C4-M03"
+      ],
+      "delta": 0.19230769230769232
+    },
+    "precision_only": {
+      "cases": 26,
+      "baseline_correct": 19,
+      "variant_correct": 18,
+      "variant_only": [
+        "C4-M04"
+      ],
+      "baseline_only": [
+        "C4-M08",
+        "C4-X05"
+      ],
+      "delta": -0.038461538461538464
+    },
+    "parent_semantic_v3": {
+      "cases": 26,
+      "baseline_correct": 19,
+      "variant_correct": 25,
+      "variant_only": [
+        "C4-B04",
+        "C4-M04",
+        "C4-X01",
+        "C4-X06",
+        "C4-X09",
+        "C4-X11"
+      ],
+      "baseline_only": [],
+      "delta": 0.23076923076923078
+    }
+  },
+  "retrieval_components": {
+    "bm25_parent_smoke": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "clause_recall_at_k": 0.7916666666666666,
+      "evidence_complete_rate": 0.6153846153846154,
+      "evidence_hit_at_k": 0.9615384615384616,
+      "evidence_mrr": 0.6967948717948718,
+      "mean_context_estimated_tokens": 2587.28125,
+      "mean_local_retrieval_ms": null,
+      "answer_accuracy": null,
+      "unanswerable_abstention_accuracy": null
+    },
+    "flat_vector": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "clause_recall_at_k": 0.7019230769230769,
+      "evidence_complete_rate": 0.5,
+      "evidence_hit_at_k": 0.9230769230769231,
+      "evidence_mrr": 0.7141025641025641,
+      "mean_context_estimated_tokens": 1315,
+      "mean_local_retrieval_ms": null,
+      "answer_accuracy": null,
+      "unanswerable_abstention_accuracy": null
+    },
+    "parent_child_hybrid": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "clause_recall_at_k": 0.7692307692307693,
+      "evidence_complete_rate": 0.5769230769230769,
+      "evidence_hit_at_k": 0.9615384615384616,
+      "evidence_mrr": 0.782051282051282,
+      "mean_context_estimated_tokens": 2367.5,
+      "mean_local_retrieval_ms": null,
+      "answer_accuracy": null,
+      "unanswerable_abstention_accuracy": null
+    },
+    "parent_child_vector": {
+      "cases": 32,
+      "answerable_cases": 26,
+      "clause_recall_at_k": 0.75,
+      "evidence_complete_rate": 0.5384615384615384,
+      "evidence_hit_at_k": 0.9615384615384616,
+      "evidence_mrr": 0.7237179487179487,
+      "mean_context_estimated_tokens": 2172.59375,
+      "mean_local_retrieval_ms": null,
+      "answer_accuracy": null,
+      "unanswerable_abstention_accuracy": null
+    }
+  },
+  "source_equivalence_audit": {
+    "status": "AI source equivalence audit, pending human; frozen labels and strict recall unchanged",
+    "dataset_sha256": "809a092d3de8252b9fd28f476d06cc78e3ec805bbf144b52ecea89bf87935ad2",
+    "alternative_source": {
+      "document_id": "ygb-1061-9703",
+      "version": "snapshot-20261019-94514a99064b",
+      "source_url": "https://ygb.xidian.edu.cn/info/1061/9703.htm",
+      "heading": "研究生教育管理常见手续办理流程介绍 / 一、校外住宿手续",
+      "content": "一、校外住宿手续\n\n1.适用情况\n\n（1）在学校（含异地研究院）或学校联系的校外学习实践单位安排的场所之外连续居住超过14天。\n\n（2）研究生校外住宿申请按学年办理，有效期一年。上一学年已办理校外住宿手续新学年继续校外住宿的，或有效期内校外住宿地点变更的，须重新申请。\n\n2.办理流程\n\n（1）移动端：“西安电子科技大学”微信企业号——移动门户——搜索“研究生校外住宿备案表”。\n\n（2）PC端：一网通办（https://ywtb.xidian.edu.cn/）——搜索“研究生校外住宿备案表”。\n\n3.审批流程（导师—辅导员—学院党委副书记）\n\n（1）移动端：“西安电子科技大学”微信企业号——消息服务。\n\n（2）PC端：一网通办（https://ywtb.xidian.edu.cn/）——任务中心——待我审批。"
+    },
+    "cases": [
+      {
+        "case_id": "C4-M06",
+        "finding": "Strict designated-source miss only: returned process guide repeats the exclusion for school/practice-unit-arranged housing. Do not call it missing the applicable definition."
+      },
+      {
+        "case_id": "C4-X01",
+        "finding": "Returned guide covers housing duration/scope and approval path; strict miss overstates missing scope. It does not contain the declared family informed-consent upload step, so some reference detail remains absent from the returned housing passage."
+      }
+    ]
+  },
+  "remaining_rerank_misses": [
+    {
+      "case_id": "C4-X01",
+      "candidate_pool_recall": 1,
+      "rerank_selected_recall_before_budget": 0.5,
+      "final_recall": 0.5
+    },
+    {
+      "case_id": "C4-M06",
+      "candidate_pool_recall": 1,
+      "rerank_selected_recall_before_budget": 0.6666666666666666,
+      "final_recall": 0.6666666666666666
+    }
+  ],
+  "challenge_by_category": {
+    "boundary_conflict": {
+      "archived_flat_hybrid": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "correct_answerable": 3,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.7222222222222222,
+        "generation_truncated": 0
+      },
+      "parent_child_hybrid": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "correct_answerable": 4,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.8333333333333334,
+        "generation_truncated": 0
+      },
+      "parent_semantic_v3": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "correct_answerable": 5,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.9444444444444444,
+        "generation_truncated": 0
+      },
+      "precision_only": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "correct_answerable": 4,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.8888888888888888,
+        "generation_truncated": 0
+      },
+      "rerank_only": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "correct_answerable": 6,
+        "correct_negative": 0,
+        "point_coverage_answerable": 1,
+        "generation_truncated": 0
+      }
+    },
+    "cross_document": {
+      "archived_flat_hybrid": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "correct_answerable": 8,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.9027777777777778,
+        "generation_truncated": 0
+      },
+      "parent_child_hybrid": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "correct_answerable": 8,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.8611111111111112,
+        "generation_truncated": 0
+      },
+      "parent_semantic_v3": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "correct_answerable": 12,
+        "correct_negative": 0,
+        "point_coverage_answerable": 1,
+        "generation_truncated": 0
+      },
+      "precision_only": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "correct_answerable": 7,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.8333333333333334,
+        "generation_truncated": 0
+      },
+      "rerank_only": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "correct_answerable": 12,
+        "correct_negative": 0,
+        "point_coverage_answerable": 1,
+        "generation_truncated": 0
+      }
+    },
+    "long_history": {
+      "archived_flat_hybrid": {
+        "cases": 8,
+        "answerable_cases": 8,
+        "correct_answerable": 8,
+        "correct_negative": 0,
+        "point_coverage_answerable": 1,
+        "generation_truncated": 0
+      },
+      "parent_child_hybrid": {
+        "cases": 8,
+        "answerable_cases": 8,
+        "correct_answerable": 7,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.9375,
+        "generation_truncated": 0
+      },
+      "parent_semantic_v3": {
+        "cases": 8,
+        "answerable_cases": 8,
+        "correct_answerable": 8,
+        "correct_negative": 0,
+        "point_coverage_answerable": 1,
+        "generation_truncated": 0
+      },
+      "precision_only": {
+        "cases": 8,
+        "answerable_cases": 8,
+        "correct_answerable": 7,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.9375,
+        "generation_truncated": 0
+      },
+      "rerank_only": {
+        "cases": 8,
+        "answerable_cases": 8,
+        "correct_answerable": 6,
+        "correct_negative": 0,
+        "point_coverage_answerable": 0.875,
+        "generation_truncated": 0
+      }
+    },
+    "unanswerable": {
+      "archived_flat_hybrid": {
+        "cases": 6,
+        "answerable_cases": 0,
+        "correct_answerable": 0,
+        "correct_negative": 4,
+        "point_coverage_answerable": null,
+        "generation_truncated": 0
+      },
+      "parent_child_hybrid": {
+        "cases": 6,
+        "answerable_cases": 0,
+        "correct_answerable": 0,
+        "correct_negative": 3,
+        "point_coverage_answerable": null,
+        "generation_truncated": 1
+      },
+      "parent_semantic_v3": {
+        "cases": 6,
+        "answerable_cases": 0,
+        "correct_answerable": 0,
+        "correct_negative": 4,
+        "point_coverage_answerable": null,
+        "generation_truncated": 0
+      },
+      "precision_only": {
+        "cases": 6,
+        "answerable_cases": 0,
+        "correct_answerable": 0,
+        "correct_negative": 5,
+        "point_coverage_answerable": null,
+        "generation_truncated": 1
+      },
+      "rerank_only": {
+        "cases": 6,
+        "answerable_cases": 0,
+        "correct_answerable": 0,
+        "correct_negative": 4,
+        "point_coverage_answerable": null,
+        "generation_truncated": 0
+      }
+    }
+  },
+  "wording_original": {
+    "parametric_probe": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 2,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.4375,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 7,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.9583333333333334,
+      "generation_truncated": 0
+    }
+  },
+  "wording_rewritten": {
+    "parametric_probe": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 1,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.4375,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 7,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.9375,
+      "generation_truncated": 0
+    }
+  },
+  "wording_rewritten_audited": {
+    "parametric_probe": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 2,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.47916666666666663,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 7,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.9375,
+      "generation_truncated": 0
+    }
+  },
+  "wording_original_audited": {
+    "parametric_probe": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 1,
+      "correct_negative": 0,
+      "point_coverage_answerable": 0.47916666666666663,
+      "generation_truncated": 0
+    },
+    "parent_child_hybrid": {
+      "cases": 8,
+      "answerable_cases": 8,
+      "correct_answerable": 7,
+      "correct_negative": 0,
+      "point_coverage_answerable": 1,
+      "generation_truncated": 0
+    }
+  },
+  "label_changes": {
+    "ablation": [
+      {
+        "case_id": "H-D01",
+        "method": "parametric_probe",
+        "before": false,
+        "after": true,
+        "reason": "回答准确覆盖了参考要点中的两个核心信息：一般原则是少于5人停开，以及招生少的学科存在例外情况。虽然回答采用了通用性解释而非直接引用特定校规（因未提供具体学校背景），但其逻辑与参考证据一致，且无实质性错误。"
+      },
+      {
+        "case_id": "H-D02",
+        "method": "parametric_probe",
+        "before": true,
+        "after": false,
+        "reason": "回答虽然给出了三类事故的名称，但将'教学管理类'简化为'管理类'，将'教学保障类'简化为'保障类'，丢失了政策文件中特定的分类前缀，导致核心术语不准确，未能完全覆盖参考要点中的精确措辞要求。此外，回答声称基于'教育部及高校普遍适用'的规定，但实际上不同学校规定差异较大，且题目隐含特定文件依据（参考证据显示为某具体办法第三条），这种泛化表述虽无实质事实错误（因为确实存在类似分类），但在精确性上有所欠缺。主要扣分点在于类别名称的不准确。"
+      },
+      {
+        "case_id": "H-C11",
+        "method": "random_context",
+        "before": false,
+        "after": true,
+        "reason": "回答准确覆盖了所有参考要点：明确了申请不等于保证（否定性约束）、指出了需要复学审批（对应部门审批）以及床位资源限制（对应空余床位）。虽然回答侧重于复学流程而非直接引用《西安电子科技大学研究生管理规定》第八条关于“特殊情况入住”的原文，但其逻辑推导出的结论（需审批+有床位）与参考要点完全等价，且无实质性错误。"
+      },
+      {
+        "case_id": "H-C11",
+        "method": "parametric_probe",
+        "before": true,
+        "after": false,
+        "reason": "回答正确指出了不能保证一定安排以及需要有空余床位，但遗漏了参考证据中强调的“须经相关部门审批同意”这一核心程序性条件。虽然提供了其他一般性建议（如学籍状态、无违规记录等），但未覆盖所有必须的关键点。由于contexts为空，context_relevance列表为空。"
+      },
+      {
+        "case_id": "H-M02",
+        "method": "parametric_probe",
+        "before": true,
+        "after": false,
+        "reason": "模型因缺乏具体学校文件而选择回避（abstain），虽然提供了基于常识的推测且无实质错误，但未能覆盖参考要点中关于特定主体（研究生院/学院）和特定范围（全校/本院）的确切规定。根据评测规则，对于answerable为true的题目，若未直接给出参考要点中的核心事实，视为未覆盖。"
+      },
+      {
+        "case_id": "H-X12",
+        "method": "parent_child_hybrid",
+        "before": true,
+        "after": false,
+        "reason": "回答准确引用了参考要点中的规则，对学业和外语两项门槛的判断逻辑正确（即满足其一即可），并给出了正确的最终结论（两项均达标）。然而，回答存在严重的内部逻辑矛盾：开头第一句错误地断言“未达到学业成绩门槛”，随后又在详细分析和总结中纠正为“视为达到”和“两项均满足”。根据复核规则，这种前后不一致的断言属于实质性自相矛盾，尽管最终结论正确，但首句的错误陈述误导了读者，故记录为矛盾。"
+      },
+      {
+        "case_id": "H-U09",
+        "method": "parent_child_hybrid",
+        "before": false,
+        "after": true,
+        "reason": "用户问题缺少关键条件（抽检类型、结果等级、累计次数），无法给出唯一确定的停招年限。模型正确识别了这一点，没有直接猜测一个数字，而是列举了不同情况下的规则，并最后引导用户补充信息以获取准确答案。这符合“缺决定性条件而优先追问算clarify”的行为定义，同时也覆盖了参考要点中关于澄清和说明已知规则的要求。回答内容基于提供的上下文，无实质错误。"
+      },
+      {
+        "case_id": "H-U11",
+        "method": "parent_child_hybrid",
+        "before": true,
+        "after": false,
+        "reason": "回答准确识别了用户请求的不可行性（系统无权限且违反规定），并引用了正确的法规依据（处分材料必须完整归档）。虽然Rank 3-5提供了处分流程的背景，但Rank 1和2直接回答了关于档案保留的核心问题。回答逻辑清晰，无实质性错误，未做出虚假承诺。"
+      },
+      {
+        "case_id": "H-M09",
+        "method": "oracle_source_blocks",
+        "before": false,
+        "after": true,
+        "reason": "回答准确提取了资料中关于II类学科博士（非一年级直博生）的津贴标准（800元/月）、经费来源（导师全额出资）以及学校配套政策（无配套），完全覆盖了所有参考要点，且无实质性错误或虚构信息。"
+      }
+    ],
+    "challenge": [
+      {
+        "case_id": "C4-M03",
+        "method": "precision_only",
+        "before": false,
+        "after": true,
+        "reason": "回答准确提取了参考要点中的核心规则：硕士结业后1年内可换发毕业证和申请学位，并正确排除了博士2年规则的适用性。针对用户的具体情况（专业学位硕士、结业10个月），给出了肯定的结论和操作路径。逻辑清晰，事实依据充分，无实质性错误。"
+      },
+      {
+        "case_id": "C4-B04",
+        "method": "parent_child_hybrid",
+        "before": true,
+        "after": false,
+        "reason": "回答正确识别了‘以学位论文申请学位’需要2项专利，从而否定了两人套用同一门槛的可能性。但是，对于‘仅申请毕业答辩’的情况，回答声称‘未设置门槛’或‘不适用’，这与参考要点1中提到的‘毕业路径一项...可满足’相矛盾。参考要点暗示毕业要求是存在的（通常为1项），只是低于学位要求（2项）。回答未能准确陈述毕业路径的具体要求（1项），而是错误地将其描述为无门槛或不适用，导致对第一个要点的覆盖失败，并产生实质性错误。"
+      },
+      {
+        "case_id": "C4-U02",
+        "method": "archived_flat_hybrid",
+        "before": false,
+        "after": true,
+        "reason": "回答准确识别了问题中的不确定性，没有直接给出“肯定停招”的错误结论，而是根据提供的政策文件（主要是Rank 1和Rank 4）进行了分类讨论。它正确指出了“陕西省硕士抽检”在3年内累计2篇“存在问题”论文时才会停招3年，而“校内抽查”需累计3篇才停招1年，并补充了“存在一个不合格意见”且分数≥70分时不停招的关键例外。最后通过追问具体来源和结果来引导用户澄清条件，行为判定为clarify是合适的，因为缺少决定性条件无法给出唯一确定的个人结果，但提供了通用的规则解释。所有引用均基于给定上下文，无实质错误。"
+      },
+      {
+        "case_id": "C4-U02",
+        "method": "rerank_only",
+        "before": false,
+        "after": true,
+        "reason": "用户询问基于模糊信息（“不太好”、“第二次”）是否能确定“今年肯定停招三年”。由于缺乏关键事实（抽检类型、具体评级、是否在3年内），无法给出确定的Yes/No答案。回答正确地识别了这些缺失信息，解释了不同情形下的可能后果（有的不涉停招，有的停招3年，有的停招1年等），并引导用户补充必要信息以进行准确判断。这符合“answerable: false”且需澄清条件的评测标准。回答逻辑清晰，未出现实质性错误。"
+      },
+      {
+        "case_id": "C4-U06",
+        "method": "rerank_only",
+        "before": false,
+        "after": true,
+        "reason": "回答准确识别了用户请求中的两个关键点：一是索要个人业务数据（受理编号），二是基于错误前提（认为复核会延期）寻求确认。对于第一点，模型正确执行了隐私和数据边界限制，拒绝编造或声称能查询个人特定信息，符合'abstain'行为特征中关于不能给个人结果的要求。对于第二点，模型引用了正确的法规条款（Context 1中的第二十条），明确指出复核不延长相关时限，纠正了用户的误解。整体回答逻辑清晰，事实依据充分，无实质性错误。"
+      },
+      {
+        "case_id": "C4-U06",
+        "method": "parent_semantic_v3",
+        "before": false,
+        "after": true,
+        "reason": "回答准确识别了自身作为AI无法访问个人业务系统的限制，拒绝编造受理编号（符合abstain行为特征中对于无法提供个人结果的界定，同时给出了通用规则解释）。在事实层面，回答正确引用了《西安电子科技大学研究生学位授予复核工作暂行办法》第二十条，明确指出复核不延长结业换证时限，纠正了用户的错误预期。所有参考要点均已覆盖，无实质性错误或虚构信息。"
+      }
+    ],
+    "wording": [
+      {
+        "case_id": "H-C11",
+        "method": "parametric_probe",
+        "before": false,
+        "after": true,
+        "reason": "回答准确覆盖了参考要点中的核心条件：需要审批（隐含在特殊规定/重新申请中）、需要有空余床位、以及不保证即时安排。虽然回答采用了通用性表述而非直接引用特定法规条文（因题目未指定具体学校，且参考证据仅为示例），但其提供的逻辑框架符合政策问答的常规处理方式，无实质性错误。"
+      }
+    ]
+  },
+  "artifact_sha256": {
+    "protocol.json": "066d3a7efe05a64f28a0fbbedb258527c21ac453214c76fba1d86ec47cc70c14",
+    "audit-protocol.json": "3da68bc57b07d28421197d029949e2e89f719370539f8daf9bb32b01488fa62d",
+    "ablation/inputs.json": "8ee41b4c651ba2813eb2c555606eabea8b249e425f835879982db255b9e41ccd",
+    "ablation/audited-report.json": "aa481dca2316249fdca84aab0388bea061dadc91bead251e04babae3e4ceed21",
+    "challenge-input.json": "809a092d3de8252b9fd28f476d06cc78e3ec805bbf144b52ecea89bf87935ad2",
+    "challenge/report.json": "988060922b91a4213523bc73a26a53a37b15ad662202e102df9ed8f5c99df00d",
+    "challenge/audited-report.json": "254fce915bed95f7f658326a89f1b0aee7a80dd2335a56edcadb991c682b97b9"
+  }
+}

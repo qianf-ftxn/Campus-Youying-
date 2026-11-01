@@ -92,6 +92,7 @@ class KnowledgeDocument(Base):
     status: Mapped[str] = mapped_column(String(32), default="ACTIVE", index=True)
     is_demo: Mapped[bool] = mapped_column(Boolean, default=False)
     content_hash: Mapped[str] = mapped_column(String(64), default="")
+    chunking_version: Mapped[str] = mapped_column(String(96), default="")
     content: Mapped[str] = mapped_column(Text().with_variant(MEDIUMTEXT(), "mysql"))
     created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
 

@@ -85,7 +85,7 @@ class PromptTemplates:
         return "以关怀的方式先简短确认近况与当前安全，再回应用户的请求；避免机械重复完整危机模板。"
 
     @staticmethod
-    def answer_system_prompt(intent: IntentType, risk: RiskLevel, context: str, display_name: str, skill_context: str = "") -> AiMessage:
+    def answer_system_prompt(intent: IntentType, risk: RiskLevel, context: str, display_name: str, skill_context: str = "", *, policy_evidence_precision: bool = False) -> AiMessage:
         if intent == IntentType.CHAT:
             content = (
                 "你是校园有应，一个面向学生的校园资讯与生活支持助手。"
@@ -96,9 +96,17 @@ class PromptTemplates:
             )
             return AiMessage(role="system", content=content)
         if intent == IntentType.CONSULT and risk != RiskLevel.HIGH:
+            precision_rules = (
+                "只根据本轮检索证据回答具体校内规定。先识别当前问题的各个子项，逐项给出简明结论，"
+                "保留会改变结论的适用条件、例外、时间起算点和上限，不要遗漏已找到的必要限制。"
+                "只补充与提问直接相关且有明确依据的信息，不机械增加条件、例外或办理路径。"
+                "区分不同身份、业务对象、业务状态、年度和证明材料；主题相近不能替代适用依据。"
+                "资料未写明某项细节，不代表制度禁止该事项；不要从缺少信息推导出确定结论。"
+                "若只覆盖部分子问题，回答有依据的部分，对未覆盖的部分明确说明无法确认。"
+            ) if policy_evidence_precision else "只根据本轮检索证据回答具体校内规定，先给结论，再说明适用条件和例外。"
             return AiMessage(role="system", content=(
                 "你是校园有应，负责校园政策与服务信息问答。政策回答模式。"
-                "只根据本轮检索证据回答具体校内规定，先给结论，再说明适用条件和例外。"
+                + precision_rules +
                 "面向学生的正文不列检索片段、[资料N]标记、文件元信息或来源链接；来源资料由管理端审计。"
                 "没有对应文件或现有资料未覆盖问题时，明确提示尚未接入适用资料，不从通用知识或历史回答推测具体规定；有冲突时说明冲突。"
                 "缺关键条件时只追问必要信息。不得编造金额、期限、资格、条款和链接。"

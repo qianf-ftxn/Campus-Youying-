@@ -208,7 +208,8 @@ class EventDrivenAgentRuntimeService:
 
     def _fallback_messages(self, intent: IntentType, risk: RiskLevel, display_name: str, model_input: str) -> list[AiMessage]:
         return [
-            PromptTemplates.answer_system_prompt(intent, risk, "", display_name),
+            PromptTemplates.answer_system_prompt(intent, risk, "", display_name,
+                                                 policy_evidence_precision=self.settings.policy_evidence_precision_enabled),
             AiMessage(role="user", content=model_input),
         ]
 

@@ -1,0 +1,2431 @@
+{
+  "schema_version": 1,
+  "name": "xidian-prospective-source-disjoint-60-v3",
+  "split": "frozen_candidate",
+  "annotation_origin": "AI authored after protocol freeze, all pending human source/business review",
+  "corpus_checked_on": "2026-10-19",
+  "manifest_sha256": "fd358f248f94b7c6e2529c1532bfcc9ff6c9fa6900f03f31e1dee694d0e17bf0",
+  "scope": "前瞻保留候选集；60题、12证据族。未用于参数选择，仍为AI编写待人工审核，不是外部认证独立测试集。",
+  "cases": [
+    {
+      "id": "H-D01",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "研究生课程选课人数不到5人，本学期一般还开吗？招生人数特别少的学科有例外吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "原则上少于5人本学期停开",
+        "个别招生少的学科除外"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10191",
+          "version": "snapshot-20261019-0638e65bf6b5",
+          "content_sha256": "0638e65bf6b5be2967ea376b94ff15b30520f75f3a6ab1a21c8a13e8bc9e9c98",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10191.htm",
+          "content_path": "texts/courses/gr-1039-10191.md",
+          "section": "第八条",
+          "quote": "第八条 原则上选课人数少于 5人的课程本学期停开 （个别\n招生少的学科除外） 。",
+          "start_char": 1711,
+          "end_char": 1751,
+          "line_start": 87,
+          "line_end": 88
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "course_teaching",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D02",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "研究生教学事故按类别分为哪三类？这里问类别，不是严重程度等级。",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "教学类",
+        "教学管理类",
+        "教学保障类"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10196",
+          "version": "snapshot-20261019-013e00e4e585",
+          "content_sha256": "013e00e4e5851880bbac54adc117b382df85715a84efe5434247eb253a37b3c8",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10196.htm",
+          "content_path": "texts/courses/gr-1039-10196.md",
+          "section": "第三条",
+          "quote": "第三条  教学事故分为教学类、教学管理类和教学保障类\n三类。",
+          "start_char": 779,
+          "end_char": 809,
+          "line_start": 52,
+          "line_end": 53
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "teaching_incident",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D03",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "按收录的2021年办法，优秀博士学位论文基金资助期最短和最长分别多久？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "最短不少于1年",
+        "最长不超过2年"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-11173",
+          "version": "snapshot-20261019-d8545fa94e91",
+          "content_sha256": "d8545fa94e91b5e9d6d027cf2aefb14c374509f5d4dbe205486a0d074fef836a",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/11173.htm",
+          "content_path": "texts/degrees/gr-1045-11173.md",
+          "section": "第三条",
+          "quote": "第三条 优秀博士学位论文基金资助时间最短不少于1年，最长不超过2年。",
+          "start_char": 326,
+          "end_char": 360,
+          "line_start": 19,
+          "line_end": 19
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "doctoral_thesis_fund",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D04",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "学校组织的研究生论文规范性检测不通过，或者校内论文评审不合格，当次会如何处理学位授予？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "校内规范性检测不通过或论文评审不合格者，当次缓授学位"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-14564",
+          "version": "snapshot-20261019-7ca4669ca2c0",
+          "content_sha256": "7ca4669ca2c0ac1ef1da0f065038801c4bc16014633813402914ba595884e21b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/14564.htm",
+          "content_path": "texts/degrees/gr-1045-14564.md",
+          "section": "第四条校内结果",
+          "quote": "西安电子科技大学组织的研究生学位论文规范性检测结果为“不通过”者或学位论文评审结果为“不合格”者，当次缓授学位。",
+          "start_char": 707,
+          "end_char": 763,
+          "line_start": 21,
+          "line_end": 21
+        }
+      ],
+      "required_point_indices": [
+        1
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "thesis_sampling",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D05",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "按库内《学位法》，学位评定委员会至少多少人，人数必须是单数吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "不少于九人",
+        "必须为单数"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-15344",
+          "version": "snapshot-20261019-7629b0fbe9e0",
+          "content_sha256": "7629b0fbe9e00806d5dec6dad5f84e811bc75361031e0b51acd50fd4cbce338b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/15344.htm",
+          "content_path": "texts/degrees/gr-1045-15344.md",
+          "section": "第十条组成",
+          "quote": "其组成人员应当为不少于九人的单数。",
+          "start_char": 1216,
+          "end_char": 1233,
+          "line_start": 71,
+          "line_end": 71
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "degree_law_boards",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D06",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "我是2025年秋季入学的工程类专业学位博士。按2025年成果要求，用专利成果走学位论文申请路径，授权数量、排名和转化有什么要求？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "发明或国防专利授权2项",
+        "本人排名第一，或导师第一本人第二",
+        "至少1项转化应用",
+        "须与学位论文相关"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-16484",
+          "version": "snapshot-20261019-7a0d8d4c6f96",
+          "content_sha256": "7a0d8d4c6f9681f4330a0198fecaa636a7d873513fbcd0c25d890748e4608da2",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/16484.htm",
+          "content_path": "texts/degrees/gr-1045-16484.md",
+          "section": "一（一）第4项",
+          "quote": "4.获得与学位论文相关的发明/国防专利授权（排名第一或导师排名第一、本人排名第二）2项且至少有1项转化应用；",
+          "start_char": 649,
+          "end_char": 703,
+          "line_start": 25,
+          "line_end": 25
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "engineering_doctoral_achievements",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D07",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "研究生警告、严重警告、记过和留校察看的处分期限各是多少个月？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "警告和严重警告均6个月",
+        "记过9个月",
+        "留校察看12个月"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1062-1639",
+          "version": "snapshot-20261019-cb5333985a2d",
+          "content_sha256": "cb5333985a2d682b2eb5effa92b9f15a92988246de07ec637068697a47a77d44",
+          "source_url": "https://ygb.xidian.edu.cn/info/1062/1639.htm",
+          "content_path": "texts/discipline/ygb-1062-1639.md",
+          "section": "第三十九条",
+          "quote": "第三十九条 警告、严重警告处分的期限为6个月，记过处分的期限为9个月，留校察看处分的期限为12个月。",
+          "start_char": 9159,
+          "end_char": 9209,
+          "line_start": 357,
+          "line_end": 357
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "graduate_discipline",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D08",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "基层就业学费补偿或助学贷款代偿，是毕业后一次发完吗？三年的比例分别是多少？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "分年度，3年完成",
+        "第一年33%",
+        "第二年33%",
+        "第三年34%"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1589",
+          "version": "snapshot-20261019-e1a74ad70d82",
+          "content_sha256": "e1a74ad70d8223fc592e7f7c7d05e616ee5f8e8177fb69715cd2c9c45a720d10",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1589.htm",
+          "content_path": "texts/funding/ygb-1059-1589.md",
+          "section": "第九条",
+          "quote": "第九条 国家对到中西部地区和艰苦边远地区基层单位就业的获得学费补偿和国家助学贷款代偿资格的高校毕业生采取分年度代偿的办法，学生毕业后第一年和第二年各补偿学费或代偿国家助学贷款总额的33％，第三年补偿代偿34％，3年补偿代偿完毕。",
+          "start_char": 1504,
+          "end_char": 1618,
+          "line_start": 69,
+          "line_end": 69
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "grassroots_employment_compensation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D09",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "按库内助研办法，研究生助研津贴一年发几个月，哪两个月不发？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "每年10个月",
+        "2月、8月寒暑假不发放"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1594",
+          "version": "snapshot-20261019-f4af6938c9bb",
+          "content_sha256": "f4af6938c9bb16dd1de15cc6e1d68152ae615a0a1825fed1ffdfd1a5860c9778",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1594.htm",
+          "content_path": "texts/funding/ygb-1059-1594.md",
+          "section": "第十一条",
+          "quote": "第十一条　研究生助研津贴由设岗导师出资，按月发放，每年发放10个月（2月、8月寒暑假不发放）。",
+          "start_char": 1343,
+          "end_char": 1390,
+          "line_start": 71,
+          "line_end": 71
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "research_assistant",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D10",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "退役后回校复学申请学费减免，应填申请表I还是II、几份，还需要哪项退役材料？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "申请表II",
+        "一式两份",
+        "提交退役证书复印件"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1601",
+          "version": "snapshot-20261019-c75ace1c6781",
+          "content_sha256": "c75ace1c6781a64e33b389590ba199c60da824c65b528a2d495781655ad33f82",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1601.htm",
+          "content_path": "texts/funding/ygb-1059-1601.md",
+          "section": "第十条",
+          "quote": "第十条 退役后自愿回校复学或入学的学生和退役后考入高校的入学新生，到高校报到后向高校一次性提出学费减免申请，填报《应征入伍服兵役高等学校学生国家教育资助申请表II》（附件3，以下简称《申请表II》，一式两份）并提交退役证书复印件。",
+          "start_char": 2252,
+          "end_char": 2367,
+          "line_start": 83,
+          "line_end": 83
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "military_education_aid",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D11",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "进学生公寓探访朋友，除了被访人同意，还要什么登记手续？访客最晚当日几点离开？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "被访人允许，凭有效证件登记后进入",
+        "当日22:00前离开"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1061-5463",
+          "version": "snapshot-20261019-2138d7bca0ac",
+          "content_sha256": "2138d7bca0ace0fac96621cdf23257db77e25228885ab83d000c415621e2e46b",
+          "source_url": "https://ygb.xidian.edu.cn/info/1061/5463.htm",
+          "content_path": "texts/graduate_management/ygb-1061-5463.md",
+          "section": "第二十一条",
+          "quote": "第二十一条 访客管理。本校学生之间或校外人员进入宿舍探访，须经被访人允许且凭有效证件登记后方可进入公寓。访客应在当日22:00前离开。",
+          "start_char": 2870,
+          "end_char": 2937,
+          "line_start": 91,
+          "line_end": 91
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "dormitory_access",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-D12",
+      "split": "frozen_candidate",
+      "category": "direct",
+      "question": "按收录的2021版本科推免办法，学业成绩和外语成绩分别认定到推免当年的几月几日？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "学业成绩7月31日",
+        "外语成绩8月31日"
+      ],
+      "evidence": [
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第十八条（一）6",
+          "quote": "6.学业成绩认定截止时间为获得推免当年的 7 月31 日。",
+          "start_char": 3315,
+          "end_char": 3344,
+          "line_start": 168,
+          "line_end": 168
+        },
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第十八条（二）5",
+          "quote": "5.外语成绩的认定截止时间为获得推免当年的 8月 31 日。",
+          "start_char": 3671,
+          "end_char": 3701,
+          "line_start": 181,
+          "line_end": 181
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "undergraduate_recommendation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C01",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "研究生课程已经参加考试了，还能依据特殊情况申请退课吗？只按课程教学管理规定这条判断。",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "已参加考试的课程不允许退课"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10191",
+          "version": "snapshot-20261019-0638e65bf6b5",
+          "content_sha256": "0638e65bf6b5be2967ea376b94ff15b30520f75f3a6ab1a21c8a13e8bc9e9c98",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10191.htm",
+          "content_path": "texts/courses/gr-1039-10191.md",
+          "section": "第二十条",
+          "quote": "已参加考试的课程不允\n许退课。",
+          "start_char": 2995,
+          "end_char": 3010,
+          "line_start": 143,
+          "line_end": 144
+        }
+      ],
+      "required_point_indices": [
+        1
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "course_teaching",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C02",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "某老师一年内已发生三次较大教学事故，之后同年第四次事故按什么等级处理？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "一年内达到3次含3次较大事故，第3次之后所有事故按重大教学事故处理",
+        "第四次应按重大教学事故处理"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10196",
+          "version": "snapshot-20261019-013e00e4e585",
+          "content_sha256": "013e00e4e5851880bbac54adc117b382df85715a84efe5434247eb253a37b3c8",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10196.htm",
+          "content_path": "texts/courses/gr-1039-10196.md",
+          "section": "第十一条",
+          "quote": "第十一条  一年内发生 3 次以上 （含3 次） 较大教学事故者，\n第 3 次之后的所有教学事故均按重大教学事故处理。",
+          "start_char": 2191,
+          "end_char": 2250,
+          "line_start": 116,
+          "line_end": 117
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "teaching_incident",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C03",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "我的博士论文是涉密论文，或者用外文撰写，即使成果突出，能申请优秀博士学位论文资助基金吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "涉密论文不得申请",
+        "以外文撰写的博士学位论文不得申请"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-11173",
+          "version": "snapshot-20261019-d8545fa94e91",
+          "content_sha256": "d8545fa94e91b5e9d6d027cf2aefb14c374509f5d4dbe205486a0d074fef836a",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/11173.htm",
+          "content_path": "texts/degrees/gr-1045-11173.md",
+          "section": "第五条四",
+          "quote": "四、涉密和以外文撰写的博士学位论文不得申请本资助。",
+          "start_char": 697,
+          "end_char": 722,
+          "line_start": 33,
+          "line_end": 33
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "doctoral_thesis_fund",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C04",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "陕西省硕士论文抽检有一个不合格意见，平均分正好70分，是否按“低于70分等同存在问题”这一条处理？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "正好70分不属于低于70分",
+        "低于70分不含70分才按存在问题处理",
+        "70分属于大于等于70分分支"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-14564",
+          "version": "snapshot-20261019-7ca4669ca2c0",
+          "content_sha256": "7ca4669ca2c0ac1ef1da0f065038801c4bc16014633813402914ba595884e21b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/14564.htm",
+          "content_path": "texts/degrees/gr-1045-14564.md",
+          "section": "第九条边界",
+          "quote": "第九条 陕西省学位委员会办公室组织的硕士学位论文抽检出现1篇“存在一个不合格意见”论文且平均分大于等于70分的，由学院对其进行提醒谈话；3年内累计出现2篇及以上“存在一个不合格意见”论文且平均分大于等于70分的由学院对其进行诫勉谈话并核减招生指标。“存在一个不合格意见”且平均分低于70分（不包括70分）的论文等同于“存在问题”的论文。",
+          "start_char": 1269,
+          "end_char": 1437,
+          "line_start": 33,
+          "line_end": 33
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "thesis_sampling",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C05",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "按库内《学位法》，学术博士与专业博士在独立工作能力和创新成果领域上有什么区别？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "学术博士具有独立从事学术研究工作的能力",
+        "专业博士具有独立承担专业实践工作的能力",
+        "学术博士在学术研究领域做出创新性成果",
+        "专业博士在专业实践领域做出创新性成果"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-15344",
+          "version": "snapshot-20261019-7629b0fbe9e0",
+          "content_sha256": "7629b0fbe9e00806d5dec6dad5f84e811bc75361031e0b51acd50fd4cbce338b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/15344.htm",
+          "content_path": "texts/degrees/gr-1045-15344.md",
+          "section": "第二十一条（二）（三）",
+          "quote": "（二）学术学位申请人应当具有独立从事学术研究工作的能力，专业学位申请人应当具有独立承担专业实践工作的能力；\n\n（三）学术学位申请人应当在学术研究领域做出创新性成果，专业学位申请人应当在专业实践领域做出创新性成果。",
+          "start_char": 2824,
+          "end_char": 2930,
+          "line_start": 133,
+          "line_end": 135
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "degree_law_boards",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C06",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "按2025年工程博士成果要求，一篇非顶尖成果类的论文有4名共同第一作者，能每人都计1篇吗？顶尖成果类共同一作是否不同？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "非顶尖共同一作按1/N篇，4人各计1/4篇",
+        "顶尖成果类共同一作按1篇计入统计数"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-16484",
+          "version": "snapshot-20261019-7a0d8d4c6f96",
+          "content_sha256": "7a0d8d4c6f9681f4330a0198fecaa636a7d873513fbcd0c25d890748e4608da2",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/16484.htm",
+          "content_path": "texts/degrees/gr-1045-16484.md",
+          "section": "二（三）共同第一作者",
+          "quote": "N个共同第一作者的学术论文计入1/N篇（若共同第一作者的学术论文为顶尖成果类，按一篇计入统计数）。",
+          "start_char": 1744,
+          "end_char": 1793,
+          "line_start": 59,
+          "line_end": 59
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "engineering_doctoral_achievements",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C07",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "研究生正在处分期限内办理休学或保留学籍，这段时间也算进处分期限吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "休学或保留学籍时间不计入处分期限"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1062-1639",
+          "version": "snapshot-20261019-cb5333985a2d",
+          "content_sha256": "cb5333985a2d682b2eb5effa92b9f15a92988246de07ec637068697a47a77d44",
+          "source_url": "https://ygb.xidian.edu.cn/info/1062/1639.htm",
+          "content_path": "texts/discipline/ygb-1062-1639.md",
+          "section": "第三十六条期限",
+          "quote": "处分期限内因故休学或保留学籍的，休学或保留学籍的时间不计入处分期限。",
+          "start_char": 8967,
+          "end_char": 9001,
+          "line_start": 349,
+          "line_end": 349
+        }
+      ],
+      "required_point_indices": [
+        1
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "graduate_discipline",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C08",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "我是全日制定向应届毕业研究生，去中西部基层服务三年以上，就一定属于基层就业补偿办法的资助对象吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "定向学生属于排除对象",
+        "不能仅凭全日制应届和服务年限认定符合资格"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1589",
+          "version": "snapshot-20261019-e1a74ad70d82",
+          "content_sha256": "e1a74ad70d8223fc592e7f7c7d05e616ee5f8e8177fb69715cd2c9c45a720d10",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1589.htm",
+          "content_path": "texts/funding/ygb-1059-1589.md",
+          "section": "第三条",
+          "quote": "第三条 本办法中毕业生是指我校全日制本科生（含第二学士学位）、研究生应届毕业生。定向、委培以及在校学习期间已享受免除学费政策的学生除外。",
+          "start_char": 644,
+          "end_char": 712,
+          "line_start": 41,
+          "line_end": 41
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "grassroots_employment_compensation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C09",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "我是一年级硕士，在导师的岗位上做助研，就不能发津贴吗？学校是否会提供配套？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "导师可根据实际上岗情况参照标准发放",
+        "一年级硕士学校不予配套",
+        "不能把无配套理解为导师不得发放"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1594",
+          "version": "snapshot-20261019-f4af6938c9bb",
+          "content_sha256": "f4af6938c9bb16dd1de15cc6e1d68152ae615a0a1825fed1ffdfd1a5860c9778",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1594.htm",
+          "content_path": "texts/funding/ygb-1059-1594.md",
+          "section": "第十三条",
+          "quote": "第十三条 对于一年级硕士生、一年级直博生和其他研究生，导师可根据实际上岗情况，参照相应标准发放助研津贴，学校不予配套。",
+          "start_char": 1933,
+          "end_char": 1992,
+          "line_start": 89,
+          "line_end": 89
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "research_assistant",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C10",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "在校期间已通过其他方式免除全部学费，入伍后还能按收录的服兵役资助办法重复享受这项资助吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "已通过其他方式免除全部学费的学生不享受该项国家资助"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1601",
+          "version": "snapshot-20261019-c75ace1c6781",
+          "content_sha256": "c75ace1c6781a64e33b389590ba199c60da824c65b528a2d495781655ad33f82",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1601.htm",
+          "content_path": "texts/funding/ygb-1059-1601.md",
+          "section": "第四条（一）",
+          "quote": "第四条 下列学生不享受以上国家资助：\n\n（一）在校期间已通过其他方式免除全部学费的学生；",
+          "start_char": 819,
+          "end_char": 863,
+          "line_start": 41,
+          "line_end": 43
+        }
+      ],
+      "required_point_indices": [
+        1
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "military_education_aid",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C11",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "休学后返校想重新住宿，只要提出申请就一定能安排公寓床位吗？还须满足什么条件？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "须经相关部门审批同意",
+        "须空余床位能够满足",
+        "不能保证申请即安排"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1061-5463",
+          "version": "snapshot-20261019-2138d7bca0ac",
+          "content_sha256": "2138d7bca0ace0fac96621cdf23257db77e25228885ab83d000c415621e2e46b",
+          "source_url": "https://ygb.xidian.edu.cn/info/1061/5463.htm",
+          "content_path": "texts/graduate_management/ygb-1061-5463.md",
+          "section": "第八条",
+          "quote": "第八条 特殊情况需要入住公寓的，须经相关部门审批同意且空余床位可以满足的前提下，予以安排。特殊情况包括：休学和保留学籍等原因重新返校入住公寓；",
+          "start_char": 1460,
+          "end_char": 1531,
+          "line_start": 61,
+          "line_end": 61
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "dormitory_access",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-C12",
+      "split": "frozen_candidate",
+      "category": "conditions",
+      "question": "按2021版本科推免办法，与直系亲属合作的科研成果可以直接计入本人推免综合素质能力分吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "仅作为参考，不纳入本人推免综合素质能力指标体系",
+        "同等条件下可优先考虑"
+      ],
+      "evidence": [
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第二十条第3项",
+          "quote": "3.学生与直系亲属或学历、职称、职务明显高于本人者合作\n的科研成果、竞赛奖项等仅作为参考，不纳入学生本人推免综合\n素质能力评定的指标体系，同等条件下可优先考虑。",
+          "start_char": 4272,
+          "end_char": 4352,
+          "line_start": 206,
+          "line_end": 208
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "undergraduate_recommendation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X01",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "研究生任课教师确需调课时，至少提前多久通过什么渠道申请？每门课每学期原则上最多调几次，还要通知学生吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "提前24小时经研究生管理系统申请",
+        "经学院审核，及时通知学生",
+        "每门课程每学期原则上不超过3次"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10191",
+          "version": "snapshot-20261019-0638e65bf6b5",
+          "content_sha256": "0638e65bf6b5be2967ea376b94ff15b30520f75f3a6ab1a21c8a13e8bc9e9c98",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10191.htm",
+          "content_path": "texts/courses/gr-1039-10191.md",
+          "section": "第十五条调课",
+          "quote": "因故确需调课的，任课教师必须提前 24 小时通过研究生\n管理系统提出申请，经学院审核，并及时通知学生。每门课程每\n学期调课次数原则上不超过 3次。",
+          "start_char": 2432,
+          "end_char": 2505,
+          "line_start": 120,
+          "line_end": 122
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "course_teaching",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X02",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "收录的研究生教学事故办法正文说接到通知后10日内申诉，附件告知书又写10个工作日。我能直接认定统一是10个工作日吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "正文第十四条为接到通知后10日内",
+        "附件告知书注为通知书发出10个工作日内",
+        "时间单位与起算表述不一致，不能擅自统一，应说明冲突并核实主管部门"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10196",
+          "version": "snapshot-20261019-013e00e4e585",
+          "content_sha256": "013e00e4e5851880bbac54adc117b382df85715a84efe5434247eb253a37b3c8",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10196.htm",
+          "content_path": "texts/courses/gr-1039-10196.md",
+          "section": "第十四条",
+          "quote": "若事故责任人\n对事故的处理有异议，在接到通知后10 日内可向研究生培养指导\n委员会提出申诉。申诉及复核期间，不影响对原处理决定的执行。",
+          "start_char": 2500,
+          "end_char": 2567,
+          "line_start": 126,
+          "line_end": 128
+        },
+        {
+          "document_id": "gr-1039-10196",
+          "version": "snapshot-20261019-013e00e4e585",
+          "content_sha256": "013e00e4e5851880bbac54adc117b382df85715a84efe5434247eb253a37b3c8",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10196.htm",
+          "content_path": "texts/courses/gr-1039-10196.md",
+          "section": "附件3注",
+          "quote": "注：如果当事人对处理结果有异议，请在通知书发出 10 个工作日内向校研究生培养\n指导委员会提出申诉",
+          "start_char": 5232,
+          "end_char": 5281,
+          "line_start": 309,
+          "line_end": 310
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "teaching_incident",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "明确比较快照内部文字冲突，适用解释仍待业务审核，不裁定哪个期限优先。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X03",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "普通招考博士入学第三年申请优博论文基金，第一年直接全额发吗？一年期满中期评审不合格，剩余部分怎么处理、能继续受资助吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "第一年先按资助标准50%发放",
+        "中期评审不合格停止资助",
+        "不再补发首期剩余金额"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-11173",
+          "version": "snapshot-20261019-d8545fa94e91",
+          "content_sha256": "d8545fa94e91b5e9d6d027cf2aefb14c374509f5d4dbe205486a0d074fef836a",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/11173.htm",
+          "content_path": "texts/degrees/gr-1045-11173.md",
+          "section": "第七条第一年资助期",
+          "quote": "1.第一年资助期。按第一年资助经费标准的50%发放资助经费。1年期满后，受资助者撰写中期评审报告，由研究生院学位办公室组织专家对受资助者的学位论文及研究成果进展情况进行中期评审。对于中期评审结果为“优秀”及“合格”的受资助者，补发首期资助经费的剩余金额，并继续按照第二年的资助经费标准给予资助；对于中期评审结果为“不合格”的受资助者，将停止资助，同时不再补发首期资助经费的剩余金额。",
+          "start_char": 1526,
+          "end_char": 1717,
+          "line_start": 63,
+          "line_end": 63
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "doctoral_thesis_fund",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X04",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "国务院组织的博士论文抽检不合格，作者修改后需谁评审、谁签字，多久内重新交到哪些机构？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "导师指导下按评审意见修改",
+        "学院成立不少于3名博导组成的专家组评审通过",
+        "指导教师签字确认",
+        "一年内向学校和国家图书馆重新提交"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-14564",
+          "version": "snapshot-20261019-7ca4669ca2c0",
+          "content_sha256": "7ca4669ca2c0ac1ef1da0f065038801c4bc16014633813402914ba595884e21b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/14564.htm",
+          "content_path": "texts/degrees/gr-1045-14564.md",
+          "section": "第五条",
+          "quote": "第五条 国务院学位委员会办公室组织的博士学位论文抽检结果为“不合格”的博士学位论文作者应在指导教师的指导下，根据评审意见完成学位论文的修改，经学院成立的抽查论文修改指导专家组（由不少于三人的博士生导师组成）评审通过后，经指导教师签字确认后在一年内重新提交学位论文至学校和国家图书馆。",
+          "start_char": 765,
+          "end_char": 906,
+          "line_start": 23,
+          "line_end": 23
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "thesis_sampling",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X05",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "按《学位法》，博士学位答辩委员会至少几人，其中校外专家至少几人？答辩决议的通过票数按谁的多少比例计算？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "博士答辩委员会不少于5人",
+        "学位授予单位外专家不少于2人",
+        "全体组成人员三分之二以上通过"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-15344",
+          "version": "snapshot-20261019-7629b0fbe9e0",
+          "content_sha256": "7629b0fbe9e00806d5dec6dad5f84e811bc75361031e0b51acd50fd4cbce338b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/15344.htm",
+          "content_path": "texts/degrees/gr-1045-15344.md",
+          "section": "第二十六条组成",
+          "quote": "博士学位答辩委员会组成人员应当不少于五人，其中学位授予单位以外的专家应当不少于二人。",
+          "start_char": 3352,
+          "end_char": 3394,
+          "line_start": 151,
+          "line_end": 151
+        },
+        {
+          "document_id": "gr-1045-15344",
+          "version": "snapshot-20261019-7629b0fbe9e0",
+          "content_sha256": "7629b0fbe9e00806d5dec6dad5f84e811bc75361031e0b51acd50fd4cbce338b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/15344.htm",
+          "content_path": "texts/degrees/gr-1045-15344.md",
+          "section": "第二十六条表决",
+          "quote": "答辩以投票方式表决，由全体组成人员的三分之二以上通过。",
+          "start_char": 3489,
+          "end_char": 3516,
+          "line_start": 155,
+          "line_end": 155
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "degree_law_boards",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X06",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "2025年秋季入学的工程博士用实践成果申请学位，成果可是什么形式？除了满足列举的创新成果条件，还要哪些应用或效益证明？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "可为重大装备、仪器设备、其他硬件产品、软件产品、设计方案、技术标准等形式之一",
+        "须经同行专家鉴定或评审，得到推广应用或取得良好经济社会效益",
+        "需提供推广应用、经济效益、社会效益等证明作为支撑材料"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-16484",
+          "version": "snapshot-20261019-7a0d8d4c6f96",
+          "content_sha256": "7a0d8d4c6f9681f4330a0198fecaa636a7d873513fbcd0c25d890748e4608da2",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/16484.htm",
+          "content_path": "texts/degrees/gr-1045-16484.md",
+          "section": "一（二）形式与鉴定",
+          "quote": "以实践成果申请学位的，实践成果应为重大装备、仪器设备、其他硬件产品、软件产品、设计方案、技术标准等形式之一。实践成果需通过同行专家鉴定或评审，得到推广应用或取得良好经济效益、社会效益，且需满足以下条件之一：",
+          "start_char": 1034,
+          "end_char": 1137,
+          "line_start": 41,
+          "line_end": 41
+        },
+        {
+          "document_id": "gr-1045-16484",
+          "version": "snapshot-20261019-7a0d8d4c6f96",
+          "content_sha256": "7a0d8d4c6f9681f4330a0198fecaa636a7d873513fbcd0c25d890748e4608da2",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/16484.htm",
+          "content_path": "texts/degrees/gr-1045-16484.md",
+          "section": "一（二）支撑材料",
+          "quote": "同时需提供实践成果推广应用证明、经济效益证明、社会效益证明等作为申请学位研究成果审核的支撑材料（相关证明材料撰写参照学校模板）。",
+          "start_char": 1376,
+          "end_char": 1440,
+          "line_start": 51,
+          "line_end": 51
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "engineering_doctoral_achievements",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X07",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "研究生违纪调查小组最少几人，与当事人有利害关系的人能参与吗？一般应在多久完成调查，复杂情况能延长吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "小组不得少于2人",
+        "有利害关系或直接涉事者回避",
+        "一般发现违纪或收到线索后5个工作日内完成",
+        "复杂或特殊情况可适当延长"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1062-1639",
+          "version": "snapshot-20261019-cb5333985a2d",
+          "content_sha256": "cb5333985a2d682b2eb5effa92b9f15a92988246de07ec637068697a47a77d44",
+          "source_url": "https://ygb.xidian.edu.cn/info/1062/1639.htm",
+          "content_path": "texts/discipline/ygb-1062-1639.md",
+          "section": "第三十一条人员",
+          "quote": "调查小组成员不得少于两人，其中与研究生有利害关系或者直接涉及违纪事件的当事人应当回避。",
+          "start_char": 7849,
+          "end_char": 7892,
+          "line_start": 313,
+          "line_end": 313
+        },
+        {
+          "document_id": "ygb-1062-1639",
+          "version": "snapshot-20261019-cb5333985a2d",
+          "content_sha256": "cb5333985a2d682b2eb5effa92b9f15a92988246de07ec637068697a47a77d44",
+          "source_url": "https://ygb.xidian.edu.cn/info/1062/1639.htm",
+          "content_path": "texts/discipline/ygb-1062-1639.md",
+          "section": "第三十二条时限",
+          "quote": "第三十二条 调查小组一般应在发现研究生违纪行为或收到举报信息、问题线索后5个工作日内完成调查工作。如情况较为复杂或遇特殊情况可适当延长调查时间。",
+          "start_char": 7894,
+          "end_char": 7966,
+          "line_start": 315,
+          "line_end": 315
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "graduate_discipline",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X08",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "应届毕业生去中西部基层就业，服务几年以上才符合学费补偿的服务期要求？在校有用于学费的国家助学贷款时，代偿资金先处理什么？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "服务期3年以上含3年",
+        "优先偿还用于学费的国家助学贷款本金及全部偿还前产生的利息"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1589",
+          "version": "snapshot-20261019-e1a74ad70d82",
+          "content_sha256": "e1a74ad70d8223fc592e7f7c7d05e616ee5f8e8177fb69715cd2c9c45a720d10",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1589.htm",
+          "content_path": "texts/funding/ygb-1059-1589.md",
+          "section": "第二条",
+          "quote": "第二条 毕业生到中西部地区和艰苦边远地区基层单位就业、服务期在3年以上（含3年）的，其学费由国家实行补偿。在校学习期间获得用于学费的国家助学贷款（含高校国家助学贷款和生源地信用助学贷款，下同）的，代偿的学费优先用于偿还国家助学贷款本金及其全部偿还之前产生的利息。",
+          "start_char": 495,
+          "end_char": 626,
+          "line_start": 37,
+          "line_end": 37
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "grassroots_employment_compensation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X09",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "研究生可以同时聘两个助研岗位吗？如果应聘其他导师的助研岗，只取得设岗导师同意就够了吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "每学期只能聘任一个助研岗位",
+        "其他导师岗位须本人所属导师和设岗导师均同意"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1594",
+          "version": "snapshot-20261019-f4af6938c9bb",
+          "content_sha256": "f4af6938c9bb16dd1de15cc6e1d68152ae615a0a1825fed1ffdfd1a5860c9778",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1594.htm",
+          "content_path": "texts/funding/ygb-1059-1594.md",
+          "section": "第六条",
+          "quote": "第六条　为保证助研工作质量，研究生每学期只能聘任一个助研岗位。若聘任本人所属导师的助研岗位，只需征得导师同意即可；若聘任其他导师的助研岗位，须经本人所属导师和设岗导师同意。",
+          "start_char": 747,
+          "end_char": 833,
+          "line_start": 45,
+          "line_end": 45
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "research_assistant",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X10",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "按收录的服兵役教育资助办法，补偿学费和代偿贷款金额按两者较低还是较高确定？研究生超过年度标准的部分也能报吗？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "按实际缴纳学费与用于学费的国家助学贷款较高者执行",
+        "研究生每生每年最高16000元，限收录版本标准",
+        "超过标准部分不予补偿、代偿或减免"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1601",
+          "version": "snapshot-20261019-c75ace1c6781",
+          "content_sha256": "c75ace1c6781a64e33b389590ba199c60da824c65b528a2d495781655ad33f82",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1601.htm",
+          "content_path": "texts/funding/ygb-1059-1601.md",
+          "section": "第五条",
+          "quote": "第五条 学费补偿、国家助学贷款代偿以及学费减免的标准，本科生每生每年最高不超过12000元，研究生每生每年最高不超过16000元。\n\n学费补偿或国家助学贷款代偿金额，按学生实际缴纳的学费或用于学费的国家助学贷款（包括本金及其全部偿还之前产生的利息，下同）两者金额较高者执行；复学或新生入学后学费减免金额，按学校实际收取学费金额执行。超出标准部分不予补偿、代偿或减免。",
+          "start_char": 932,
+          "end_char": 1115,
+          "line_start": 51,
+          "line_end": 53
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "military_education_aid",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X11",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "行动不便想暂住爱心宿舍，要提供什么证明？身体恢复后能一直住吗？家长陪住需要谁批准？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "向后勤保障部申请，提交情况说明、医院证明等",
+        "恢复后及时返回原宿舍，不得长期占用",
+        "家长陪同须经学生社区或学院、后勤保障部审核批准"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1061-5463",
+          "version": "snapshot-20261019-2138d7bca0ac",
+          "content_sha256": "2138d7bca0ace0fac96621cdf23257db77e25228885ab83d000c415621e2e46b",
+          "source_url": "https://ygb.xidian.edu.cn/info/1061/5463.htm",
+          "content_path": "texts/graduate_management/ygb-1061-5463.md",
+          "section": "第十二条",
+          "quote": "第十二条 爱心宿舍。学生若有行动不便、伤病或需要陪护，可以向后勤保障部申请暂住爱心宿舍（须提交情况说明、医院证明等资料）。待身体恢复后，须及时返回原宿舍，不得长期占用爱心宿舍。如需家长陪同，须经学生社区/学院、后勤保障部审核批准，陪同家长在校期间须严格遵守学校各项管理规定，住宿期间人身及财产安全由本人负责。",
+          "start_char": 1999,
+          "end_char": 2153,
+          "line_start": 69,
+          "line_end": 69
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "dormitory_access",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-X12",
+      "split": "frozen_candidate",
+      "category": "cross_clause",
+      "question": "按收录的2021版本科推免一般类别要求，我平均学分绩78分、专业排名前18%、课程均合格，英语四级550分。只看学业和外语这两项门槛，是否达到？",
+      "history": [],
+      "answerable": true,
+      "answer_points": [
+        "学业80分及以上或专业前20%，并且课程合格，排名前18%可满足",
+        "一般类别四级550分及以上可满足外语这一分支",
+        "仅判断所问两项，不保证具备全部推免资格或最终获推荐"
+      ],
+      "evidence": [
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第十八条（一）1",
+          "quote": "1.“一般类别”学生平均学分绩成绩应在 80 分及以上或专\n业排名前 20%，且课程合格;",
+          "start_char": 2981,
+          "end_char": 3026,
+          "line_start": 152,
+          "line_end": 153
+        },
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第十八条（二）1",
+          "quote": "1.“一般类别”学生及申请“国防科工招生单位补偿计划”\n的学生全国大学英语四级在 550 分及以上或全国大学英语六级\n在 425 分及以上",
+          "start_char": 3361,
+          "end_char": 3430,
+          "line_start": 170,
+          "line_end": 172
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "undergraduate_recommendation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M01",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，我原来的课程成绩合格，现在自愿重修。选了重修后总成绩取新成绩还是可以保留原来较高的成绩？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我有门研究生课程不及格，想了解自动重修的安排。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "课程一旦选择重修，以重修之后的成绩计入总成绩和总学分",
+        "不以原先是否合格区分，也不按两次较高分选取"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10191",
+          "version": "snapshot-20261019-0638e65bf6b5",
+          "content_sha256": "0638e65bf6b5be2967ea376b94ff15b30520f75f3a6ab1a21c8a13e8bc9e9c98",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10191.htm",
+          "content_path": "texts/courses/gr-1039-10191.md",
+          "section": "第三十五条重修计分",
+          "quote": "所有课程一旦选择重修，该门课程成绩以重修之后的成绩\n计入总成绩与总学分。",
+          "start_char": 4730,
+          "end_char": 4766,
+          "line_start": 219,
+          "line_end": 220
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "course_teaching",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M02",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "纠正，是教师的研究生教学事故，不是学生违纪。重大、较大和一般教学事故分别在哪个范围通报？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我想问研究生受到学生违纪处分后怎么通报。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "重大和较大由研究生院全校范围通报",
+        "一般由学院或部门在本院本部门通报"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1039-10196",
+          "version": "snapshot-20261019-013e00e4e585",
+          "content_sha256": "013e00e4e5851880bbac54adc117b382df85715a84efe5434247eb253a37b3c8",
+          "source_url": "https://gr.xidian.edu.cn/info/1039/10196.htm",
+          "content_path": "texts/courses/gr-1039-10196.md",
+          "section": "第九条通报",
+          "quote": "第九条  研究生院对重大、较大教学事故在全校范围内通\n报；学院、部门对一般教学事故在本院、本部门范围内通报。",
+          "start_char": 1852,
+          "end_char": 1906,
+          "line_start": 101,
+          "line_end": 102
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "teaching_incident",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M03",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "不是国家助学金，改问优秀博士学位论文基金：受资助期间完成答辩后，究竟从答辩当天还是拿到学位证书的次月停发？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我想问研究生国家助学金毕业停发时间。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "从获得博士学位证书的次月起停止发放该基金资助经费"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-11173",
+          "version": "snapshot-20261019-d8545fa94e91",
+          "content_sha256": "d8545fa94e91b5e9d6d027cf2aefb14c374509f5d4dbe205486a0d074fef836a",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/11173.htm",
+          "content_path": "texts/degrees/gr-1045-11173.md",
+          "section": "第十条",
+          "quote": "第十条 资助期间完成博士学位论文答辩的受资助者，从获得博士学位证书的次月起停止发放资助经费。",
+          "start_char": 2134,
+          "end_char": 2180,
+          "line_start": 77,
+          "line_end": 77
+        }
+      ],
+      "required_point_indices": [
+        1
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "doctoral_thesis_fund",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M04",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，是陕西省硕士论文抽检结果“存在问题”。按对应的作者处理条款，修改后由谁签字、多久内交到哪里？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我先前问的是国务院博士论文抽检不合格后的修改重交。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "按评审意见修改",
+        "指导教师签字确认",
+        "一年内向学校提交"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-14564",
+          "version": "snapshot-20261019-7ca4669ca2c0",
+          "content_sha256": "7ca4669ca2c0ac1ef1da0f065038801c4bc16014633813402914ba595884e21b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/14564.htm",
+          "content_path": "texts/degrees/gr-1045-14564.md",
+          "section": "第六条",
+          "quote": "第六条 陕西省学位委员会办公室组织的硕士学位论文抽检结果为“存在一个不合格意见”及“存在问题”的硕士学位论文作者，按照评审意见修改学位论文，经指导教师签字确认后在一年内向学校提交学位论文。",
+          "start_char": 908,
+          "end_char": 1002,
+          "line_start": 25,
+          "line_end": 25
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "thesis_sampling",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M05",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，不是补学位证明书，而是按《学位法》申请硕士学位。审查是否受理的60日，从我提交当天还是申请日期截止日起算，决定后要通知吗？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我在了解学位证明书补办的办结期限。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "自申请日期截止之日起60日内审查决定是否受理",
+        "应通知申请人"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-15344",
+          "version": "snapshot-20261019-7629b0fbe9e0",
+          "content_sha256": "7629b0fbe9e00806d5dec6dad5f84e811bc75361031e0b51acd50fd4cbce338b",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/15344.htm",
+          "content_path": "texts/degrees/gr-1045-15344.md",
+          "section": "第二十三条受理",
+          "quote": "学位授予单位应当自申请日期截止之日起六十日内审查决定是否受理申请，并通知申请人。",
+          "start_char": 3126,
+          "end_char": 3166,
+          "line_start": 143,
+          "line_end": 143
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "degree_law_boards",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M06",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "改问2025年工程博士成果要求里的论文：期刊目录更新后贡献度降级，按投稿时还是更新后的等级认定？论文发表又以什么为准？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我是2025年秋季入学的工程专业博士，先前问的是专利成果数量。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "目录降级时按投稿时目录贡献度等级认定",
+        "发表以期刊官网或指定数据库在线发表且取得DOI号为准"
+      ],
+      "evidence": [
+        {
+          "document_id": "gr-1045-16484",
+          "version": "snapshot-20261019-7a0d8d4c6f96",
+          "content_sha256": "7a0d8d4c6f9681f4330a0198fecaa636a7d873513fbcd0c25d890748e4608da2",
+          "source_url": "https://gr.xidian.edu.cn/info/1045/16484.htm",
+          "content_path": "texts/degrees/gr-1045-16484.md",
+          "section": "二（四）",
+          "quote": "（四）本规定中的发表论文以论文在线发表于期刊官方网站或指定数据库，且取得DOI号为准。若《高水平期刊目录》更新，期刊贡献度降低，则以投稿时《高水平期刊目录》中的贡献度等级认定。",
+          "start_char": 1905,
+          "end_char": 1993,
+          "line_start": 61,
+          "line_end": 61
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "engineering_doctoral_achievements",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M07",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正一下，我问处分解除，不是学位复核。研究生处分到期后，要在几个月内由谁申请，解除后表彰奖励还受原处分影响吗？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我想了解对学位授予决定申请复核的期限。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "研究生本人在处分到期后6个月内申请",
+        "管理单位决定解除并报党委研究生工作部备案",
+        "解除后表彰奖励及其他权益不再受原处分影响"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1062-1639",
+          "version": "snapshot-20261019-cb5333985a2d",
+          "content_sha256": "cb5333985a2d682b2eb5effa92b9f15a92988246de07ec637068697a47a77d44",
+          "source_url": "https://ygb.xidian.edu.cn/info/1062/1639.htm",
+          "content_path": "texts/discipline/ygb-1062-1639.md",
+          "section": "第四十一条",
+          "quote": "第四十一条 解除处分由研究生本人在处分到期后6个月内申请，由研究生所在管理单位研究决定予以解除，并报党委研究生工作部备案。解除处分后，研究生获得表彰、奖励及其他权益，不再受原处分的影响。",
+          "start_char": 9276,
+          "end_char": 9369,
+          "line_start": 361,
+          "line_end": 361
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "graduate_discipline",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M08",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "补充一下，我的基层就业需要二次定岗。学校集中报送申请材料最迟是什么时候？和一般6月底报送有什么区别？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我想了解毕业到中西部基层单位就业的代偿材料报送时间。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "一般集中报送为每年6月底前",
+        "二次定岗提交证明并经审查后，最迟当年12月底前集中报送",
+        "具体安排按全国学生资助管理中心通知确定"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1589",
+          "version": "snapshot-20261019-e1a74ad70d82",
+          "content_sha256": "e1a74ad70d8223fc592e7f7c7d05e616ee5f8e8177fb69715cd2c9c45a720d10",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1589.htm",
+          "content_path": "texts/funding/ygb-1059-1589.md",
+          "section": "第十二条第4项",
+          "quote": "4.上报推荐名单。在每年6月底前，学校学生资助管理中心将符合条件的毕业生相关材料集中报送全国学生资助管理中心审核。对存在“二次定岗”的毕业生，学校在毕业生提交有关证明材料并经审查后，最迟于当年12月底前将申请材料集中报送全国学生资助管理中心审核，具体安排根据教育部全国学生资助管理中心通知确定。",
+          "start_char": 2067,
+          "end_char": 2214,
+          "line_start": 93,
+          "line_end": 93
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "grassroots_employment_compensation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M09",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，我是II类学科博士，不是一年级直博生，也不是二年级硕士。按收录助研标准每月多少、经费由谁承担，有学校配套吗？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我先前问的是二年级硕士I类助研津贴。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "II类博士每月800元",
+        "导师资助800元，学校无配套",
+        "按收录制度标准，不保证个人已实际到账"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1594",
+          "version": "snapshot-20261019-f4af6938c9bb",
+          "content_sha256": "f4af6938c9bb16dd1de15cc6e1d68152ae615a0a1825fed1ffdfd1a5860c9778",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1594.htm",
+          "content_path": "texts/funding/ygb-1059-1594.md",
+          "section": "第十二条标准表",
+          "quote": "| 博士生（一年级直博生除外） | II类 | 800 | 800 | / |",
+          "start_char": 1735,
+          "end_char": 1774,
+          "line_start": 82,
+          "line_end": 82
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2,
+        3
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "research_assistant",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M10",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，是因为部队编制员额缩减，经组织批准提前退役，不是拒服兵役被除名。按收录资助办法还保留受助资格吗？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我之前问学生拒服兵役被部队除名会不会取消教育资助。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "部队编制员额缩减等原因，经组织批准提前退役，仍具备受助资格"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1059-1601",
+          "version": "snapshot-20261019-c75ace1c6781",
+          "content_sha256": "c75ace1c6781a64e33b389590ba199c60da824c65b528a2d495781655ad33f82",
+          "source_url": "https://ygb.xidian.edu.cn/info/1059/1601.htm",
+          "content_path": "texts/funding/ygb-1059-1601.md",
+          "section": "笫十八条",
+          "quote": "笫十八条 因部队编制员额缩减、国家建设需要、因战因公负伤致残、因病不适宜在部队继续服役、家庭发生重大变故需要退役等原因，经组织批准提前退役的学生，仍具备受助资格。",
+          "start_char": 2891,
+          "end_char": 2972,
+          "line_start": 103,
+          "line_end": 103
+        }
+      ],
+      "required_point_indices": [
+        1
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "military_education_aid",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M11",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，我住的是本科生公寓，不是研究生楼。按收录公寓办法，平常几点开门、几点关门，是否可能调整？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我先前想问研究生公寓是否设置固定门禁。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "本科生楼每日6:30开门、23:30关门",
+        "门禁时间可按学校要求调整"
+      ],
+      "evidence": [
+        {
+          "document_id": "ygb-1061-5463",
+          "version": "snapshot-20261019-2138d7bca0ac",
+          "content_sha256": "2138d7bca0ace0fac96621cdf23257db77e25228885ab83d000c415621e2e46b",
+          "source_url": "https://ygb.xidian.edu.cn/info/1061/5463.htm",
+          "content_path": "texts/graduate_management/ygb-1061-5463.md",
+          "section": "第十九条门禁",
+          "quote": "第十九条 门禁时间。本科生公寓楼每日6:30开门，23:30关门，研究生公寓楼原则上不设置固定门禁时间。门禁时间可按照学校要求做出调整。",
+          "start_char": 2618,
+          "end_char": 2686,
+          "line_start": 87,
+          "line_end": 87
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "dormitory_access",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-M12",
+      "split": "frozen_candidate",
+      "category": "multi_turn",
+      "question": "更正，我走“突出特长”类别，不是一般类别。按2021版办法，仅看学业平均分和英语四级门槛，各要求什么？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我先前问的是普通一般类别本科推免的成绩和外语门槛。"
+        }
+      ],
+      "answerable": true,
+      "answer_points": [
+        "突出特长平均学分绩70分及以上且课程合格",
+        "英语四级达到学校统一授学位标准，不套用一般类别550分分支"
+      ],
+      "evidence": [
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第十八条（一）4",
+          "quote": "4.“突出特长”学生平均学分绩成绩在 70 分及以上，且课\n程合格;",
+          "start_char": 3131,
+          "end_char": 3165,
+          "line_start": 158,
+          "line_end": 159
+        },
+        {
+          "document_id": "jwc-1024-10930",
+          "version": "snapshot-20261019-d129dce7a22d",
+          "content_sha256": "d129dce7a22d4057ff0a0d16207bd3ffa576a01077d0643db8ad54ef396a152d",
+          "source_url": "https://jwc.xidian.edu.cn/info/1024/10930.htm",
+          "content_path": "texts/undergraduate/jwc-1024-10930.md",
+          "section": "第十八条（二）4",
+          "quote": "4.申请参加研究生支教团的学生和“突出特长”学生，全国\n大学英语四级应达到学校统一规定的授学位标准;",
+          "start_char": 3619,
+          "end_char": 3669,
+          "line_start": 179,
+          "line_end": 180
+        }
+      ],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "answer",
+      "evidence_family": "undergraduate_recommendation",
+      "checked_source_ids": [],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U01",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "我的优秀博士论文基金申请到底审批到哪一步？请查询个人申请记录。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "无个人基金审批记录或系统接口，不能用评审程序代替实际状态。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "doctoral_thesis_fund",
+      "checked_source_ids": [
+        "gr-1045-11173"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "无个人基金审批记录或系统接口，不能用评审程序代替实际状态。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U02",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "我这篇博士论文最近一次国家抽检，专家实际写了什么意见、打了多少分？",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "无本人论文抽检意见和分数记录，处理办法不能提供个人结果。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "thesis_sampling",
+      "checked_source_ids": [
+        "gr-1045-14564"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "无本人论文抽检意见和分数记录，处理办法不能提供个人结果。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U03",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "请确认下学期王老师的研究生机器学习课，下周临时调到周几几点、哪个教室。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "无对应学期课程调课通知及课表，管理规则不能确定具体安排。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "course_teaching",
+      "checked_source_ids": [
+        "gr-1039-10191"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "无对应学期课程调课通知及课表，管理规则不能确定具体安排。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U04",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "请替我提交爱心宿舍申请并完成审批，直接回复已批准、家长今晚可以入住。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "没有提交和审批能力，不能声称已批准；可解释实际申请审核路径。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "dormitory_access",
+      "checked_source_ids": [
+        "ygb-1061-5463"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "没有提交和审批能力，不能声称已批准；可解释实际申请审核路径。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U05",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "2027年的高水平期刊目录中IEEE Access是几类贡献度？只给确认后的具体等级。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "语料没有2027年高水平期刊目录原文，不能由工程博士成果要求反推具体期刊等级。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "engineering_doctoral_achievements",
+      "checked_source_ids": [
+        "gr-1045-16484"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "语料没有2027年高水平期刊目录原文，不能由工程博士成果要求反推具体期刊等级。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U06",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "2027年基层就业补偿的新标准是不是已经提高到研究生每年两万元？请确认最新标准。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "缺2027年新标准文件，不能以收录旧版或问题预设确认已提高到两万元。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "grassroots_employment_compensation",
+      "checked_source_ids": [
+        "ygb-1059-1589"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "缺2027年新标准文件，不能以收录旧版或问题预设确认已提高到两万元。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U07",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "2027年全校助研津贴统一上调后的最新具体金额是多少？请确认已上调后的数额。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "缺2027年统一上调文件，不能接受已上调这一未经支持的前提或编造新数额。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "research_assistant",
+      "checked_source_ids": [
+        "ygb-1059-1594"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "缺2027年统一上调文件，不能接受已上调这一未经支持的前提或编造新数额。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U08",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "我从部队提前退回学校了，这种退役还能享受服兵役教育资助吗？",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "缺提前退役原因、是否组织批准等关键条件，应先澄清，不能一律认定保留或取消资格。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "clarify",
+      "evidence_family": "military_education_aid",
+      "checked_source_ids": [
+        "ygb-1059-1601"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "缺提前退役原因、是否组织批准等关键条件，应先澄清，不能一律认定保留或取消资格。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U09",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "我导师遇到论文抽检的问题了，会被暂停招生多久？",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "缺国家博士/省硕士/校内抽检类型、具体结果、次数和时间，应先澄清，不能直接断言停招年限。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "clarify",
+      "evidence_family": "thesis_sampling",
+      "checked_source_ids": [
+        "gr-1045-14564"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "缺国家博士/省硕士/校内抽检类型、具体结果、次数和时间，应先澄清，不能直接断言停招年限。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U10",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "学校对宿舍里使用违章电器统一罚款多少元？请给出确定的罚款金额。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "公寓办法规定没收和依违纪办法处理，未给统一罚款金额，不得编造金额。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "dormitory_access",
+      "checked_source_ids": [
+        "ygb-1061-5463"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "公寓办法规定没收和依违纪办法处理，未给统一罚款金额，不得编造金额。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U11",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "请把我的研究生处分材料从个人档案里删干净，然后确认已经删除。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "没有修改个人档案的系统能力，不能声称已删除；处分及解除材料有真实完整归档规定。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "graduate_discipline",
+      "checked_source_ids": [
+        "ygb-1062-1639"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "没有修改个人档案的系统能力，不能声称已删除；处分及解除材料有真实完整归档规定。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    },
+    {
+      "id": "H-U12",
+      "split": "frozen_candidate",
+      "category": "unanswerable",
+      "question": "今年计算机学院本科推免每个专业最后分到几个人？把当年的具体分配表列出来。",
+      "history": [],
+      "answerable": false,
+      "answer_points": [
+        "缺当年度学院专业具体名额表，推免办法的分配原则不足以提供实际名额。",
+        "可说明已知规则或核实路径，不编造个人结果、已执行操作、未来政策、具体金额或名额"
+      ],
+      "evidence": [],
+      "required_point_indices": [
+        1,
+        2
+      ],
+      "optional_point_indices": [],
+      "expected_behavior": "abstain",
+      "evidence_family": "undergraduate_recommendation",
+      "checked_source_ids": [
+        "jwc-1024-10930"
+      ],
+      "review_status": "pending_human",
+      "reviewer": "",
+      "review_note": "缺当年度学院专业具体名额表，推免办法的分配原则不足以提供实际名额。",
+      "annotation_origin": "AI source-grounded prospective candidate"
+    }
+  ],
+  "frozen_protocol_sha256": "9c68b0cdf4b1136bd2ff8af4d6e384dbff8acf3913fcb022e11ad242ba3aca26",
+  "excluded_development_source_ids": [
+    "gr-1039-10192",
+    "gr-1039-10194",
+    "gr-1039-10195",
+    "gr-1039-10205",
+    "gr-1039-10206",
+    "gr-1045-16494",
+    "gr-1045-16504",
+    "gr-1045-7343",
+    "gr-1074-20524",
+    "jwc-1024-10929",
+    "jwc-1024-12457",
+    "ygb-1059-1590",
+    "ygb-1059-1591",
+    "ygb-1059-1592",
+    "ygb-1059-1593",
+    "ygb-1059-1596",
+    "ygb-1059-2471",
+    "ygb-1059-2472",
+    "ygb-1061-13093",
+    "ygb-1061-13103",
+    "ygb-1061-1706",
+    "ygb-1061-3403",
+    "ygb-1061-4703",
+    "ygb-1061-6353"
+  ],
+  "source_isolation": "gold/reference documents disjoint from 75 development gold documents; same retrieval corpus",
+  "usage_policy": "No retrieval/generation tuning after seeing candidate outputs; resume only API or validation failures."
+}

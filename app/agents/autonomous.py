@@ -627,7 +627,8 @@ class ResponseAgent(BaseAutonomousAgent):
         mode = self._select_mode(intent, effective, safety_status)
         prompt_intent = IntentType.CHAT if mode == "normal_chat" else (intent if intent != IntentType.CHAT else IntentType.RISK)
         messages = [
-            PromptTemplates.answer_system_prompt(prompt_intent, effective, knowledge_context, self.services.user.display_name, skill_context),
+            PromptTemplates.answer_system_prompt(prompt_intent, effective, knowledge_context, self.services.user.display_name, skill_context,
+                                                 policy_evidence_precision=self.services.settings.policy_evidence_precision_enabled),
             AiMessage(
                 role="system",
                 content=(

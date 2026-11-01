@@ -1,0 +1,209 @@
+{
+  "scope": "Fixed 2x2 development regression, automatic grading pending human",
+  "protocol": {
+    "experiment": "core-ablation-v5",
+    "dataset_sha256": "809a092d3de8252b9fd28f476d06cc78e3ec805bbf144b52ecea89bf87935ad2",
+    "corpus_sha256": "fd358f248f94b7c6e2529c1532bfcc9ff6c9fa6900f03f31e1dee694d0e17bf0",
+    "arms": [
+      "flat_hybrid",
+      "parent_child_hybrid",
+      "flat_semantic",
+      "rerank_only"
+    ],
+    "top_k": 5,
+    "estimated_context_budget": 4000,
+    "candidate_k_per_lane": 16,
+    "rerank_pool_cap": 32,
+    "flat_window": [
+      300,
+      40
+    ],
+    "parent_child_target_sizes": [
+      1000,
+      300,
+      40
+    ],
+    "flat_vector_bm25_weights": [
+      0.65,
+      0.35
+    ],
+    "parent_child_bm25_weights": [
+      0.3,
+      0.35,
+      0.35
+    ],
+    "keyword_rule_rerank": false,
+    "neighbor_expansion": false,
+    "generation_model": "deepseek-v4-flash-0731",
+    "embedding_model": "text-embedding-v4",
+    "judge_model": "qwen3.8-flash",
+    "temperature": 0,
+    "max_output_tokens": 512,
+    "thinking": false,
+    "answer_prompt_sha256": "9ed878f380a2d799c3daa571f6324614d430cad9649feb132eefcee9cc8d4155",
+    "rerank_prompt_sha256": "c434db237cb5d0f19738e5c70c94f201bc7418f82296339b14f934942ecf5329",
+    "judge_prompt_sha256": "2f7a8a80d21fbcdee6fb57d4c6a57afc8bd78b8f801619805401dcb5a39fb6d5",
+    "flat_rank_sha256": "6e6fb0e1317462b0d4abfb0726d80e6f8bee67fc8849a1811cf673334763bea4",
+    "parent_rank_sha256": "31cbd6c491c9b20e462d6dcb2b86d3956b9368e34ff20f827326e15a66caec88",
+    "chunking_sha256": "117c75fbcdc73e0e26029a49af09c7a376f8ef3aae87ac10c0ad65fbe98e8672",
+    "scope": "Fixed known32 development stress cases, AI labels pending human; not independent heldout or production latency test"
+  },
+  "summary": {
+    "flat_hybrid": {
+      "correct": 15,
+      "answerable": 26,
+      "negative_correct": 3,
+      "negatives": 6,
+      "evidence_complete": 14,
+      "evidence_recall": 0.7339743589743589,
+      "generation_input_tokens": 42425,
+      "rerank_input_tokens": 0,
+      "total_input_tokens": 42425,
+      "truncated": 0
+    },
+    "parent_child_hybrid": {
+      "correct": 19,
+      "answerable": 26,
+      "negative_correct": 3,
+      "negatives": 6,
+      "evidence_complete": 15,
+      "evidence_recall": 0.7692307692307693,
+      "generation_input_tokens": 61239,
+      "rerank_input_tokens": 0,
+      "total_input_tokens": 61239,
+      "truncated": 1
+    },
+    "flat_semantic": {
+      "correct": 24,
+      "answerable": 26,
+      "negative_correct": 4,
+      "negatives": 6,
+      "evidence_complete": 21,
+      "evidence_recall": 0.9198717948717948,
+      "generation_input_tokens": 40738,
+      "rerank_input_tokens": 169263,
+      "total_input_tokens": 210001,
+      "truncated": 1
+    },
+    "rerank_only": {
+      "correct": 24,
+      "answerable": 26,
+      "negative_correct": 4,
+      "negatives": 6,
+      "evidence_complete": 24,
+      "evidence_recall": 0.967948717948718,
+      "generation_input_tokens": 57244,
+      "rerank_input_tokens": 253112,
+      "total_input_tokens": 310356,
+      "truncated": 0
+    }
+  },
+  "paired": {
+    "flat_hybrid__parent_child_hybrid": {
+      "before": "flat_hybrid",
+      "after": "parent_child_hybrid",
+      "improved": [
+        "C4-B01",
+        "C4-M01",
+        "C4-X03",
+        "C4-X05",
+        "C4-X08"
+      ],
+      "regressed": [
+        "C4-X09"
+      ],
+      "net": 4,
+      "delta_pp": 15.384615384615385
+    },
+    "flat_semantic__rerank_only": {
+      "before": "flat_semantic",
+      "after": "rerank_only",
+      "improved": [
+        "C4-B03"
+      ],
+      "regressed": [
+        "C4-M03"
+      ],
+      "net": 0,
+      "delta_pp": 0.0
+    },
+    "flat_hybrid__flat_semantic": {
+      "before": "flat_hybrid",
+      "after": "flat_semantic",
+      "improved": [
+        "C4-B01",
+        "C4-B04",
+        "C4-M01",
+        "C4-X01",
+        "C4-X03",
+        "C4-X05",
+        "C4-X06",
+        "C4-X08",
+        "C4-X11"
+      ],
+      "regressed": [],
+      "net": 9,
+      "delta_pp": 34.61538461538461
+    },
+    "parent_child_hybrid__rerank_only": {
+      "before": "parent_child_hybrid",
+      "after": "rerank_only",
+      "improved": [
+        "C4-B03",
+        "C4-B04",
+        "C4-X01",
+        "C4-X06",
+        "C4-X09",
+        "C4-X11"
+      ],
+      "regressed": [
+        "C4-M03"
+      ],
+      "net": 5,
+      "delta_pp": 19.23076923076923
+    },
+    "flat_hybrid__rerank_only": {
+      "before": "flat_hybrid",
+      "after": "rerank_only",
+      "improved": [
+        "C4-B01",
+        "C4-B03",
+        "C4-B04",
+        "C4-M01",
+        "C4-X01",
+        "C4-X03",
+        "C4-X05",
+        "C4-X06",
+        "C4-X08",
+        "C4-X11"
+      ],
+      "regressed": [
+        "C4-M03"
+      ],
+      "net": 9,
+      "delta_pp": 34.61538461538461
+    }
+  },
+  "cache": {
+    "generation_reused": 64,
+    "generation_requested": 128,
+    "quality_reused": 64,
+    "quality_requested": 128,
+    "rerank_reused": 32,
+    "rerank_requested": 64
+  },
+  "historical_flat_reference": {
+    "source": "target/policy-pilot/diagnostic-v4/challenge/audited-report.json",
+    "source_sha256": "254fce915bed95f7f658326a89f1b0aee7a80dd2335a56edcadb991c682b97b9",
+    "window": [
+      512,
+      64
+    ],
+    "keyword_rule_rerank": true,
+    "first_result_neighbors": true,
+    "correct": 19,
+    "answerable": 26,
+    "purpose": "Historical engineering reference; not the controlled A arm"
+  },
+  "raw_report_sha256": "29a785e6e382c4326f2400103adf09e6351765f599d265d948bcbb5974b4046a"
+}
