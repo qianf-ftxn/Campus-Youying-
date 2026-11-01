@@ -16,6 +16,7 @@ spec.loader.exec_module(launcher)
 
 
 def config(**kwargs):
+    kwargs.setdefault("long_term_memory_enabled", False)
     return Settings(_env_file=None, ai_provider="mock", knowledge_vector_enabled=False, **kwargs)
 
 

@@ -202,3 +202,9 @@ DATABASE_URL=sqlite:///:memory: .venv/bin/python -m app.campus_eval.runner --rea
 - [原记忆与安全设计](docs/context-memory-safety-redesign-spec.md)
 
 改造前源码备份在 `target/backups/pre-campus-youying-source.tgz`，不含模型、数据库或 `.env` 密钥配置。当前目录没有 Git 元数据，本次没有创建提交或 PR。
+
+## 用户长期记忆
+
+新增按用户跨会话复用的语义记忆和情节记忆，MySQL 保存来源与有效状态，独立 Chroma 集合负责相似检索。完整回答结束后后台更新；明确事实更新旧事实，当前输入优先。完成事项不主动跟进，截止事项到期失效；不从聊天自动生成可执行 Skills，风险状态仍按会话隔离。
+
+学生端只显示更新状态，不增加记忆管理页面；管理端仅显示处理、检索和索引同步状态，不显示个人记忆正文。已有完整对话可通过 `scripts/backfill-long-term-memory.py` 按相同规则导入。配置、接口、故障恢复和验证见 [长期记忆说明](docs/long-term-memory.md)。

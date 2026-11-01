@@ -1,3 +1,4 @@
+name: mindbridge-py
 services:
   mysql:
     image: mysql:8.0

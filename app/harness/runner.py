@@ -123,6 +123,7 @@ def configure_environment() -> None:
     os.environ["KNOWLEDGE_VECTOR_ENABLED"] = "false"
     os.environ["KNOWLEDGE_VECTOR_REQUIRED"] = "false"
     os.environ["BUNDLED_KNOWLEDGE_ENABLED"] = "false"
+    os.environ["LONG_TERM_MEMORY_ENABLED"] = "false"
     os.environ["TOOL_QUEUE_ENABLED"] = "false"
     os.environ["ALERT_EMAIL_DELIVERY_MODE"] = "log"
     os.environ["EXCEL_PATH"] = str((target_dir / "mindbridge-risk-ledger.xlsx").as_posix())

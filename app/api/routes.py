@@ -23,6 +23,28 @@ from app.services.conversations import ConversationService
 router = APIRouter()
 
 
+@router.get("/api/memory/status")
+def personal_memory_status(user: Annotated[UserAccount, Depends(current_user)], db: Annotated[Session, Depends(get_db)]):
+    from app.services.long_term_memory import LongTermMemoryService
+    # No user selector or content endpoint; caller can only observe their own update state.
+    status = LongTermMemoryService(db, get_settings()).status(user.id)
+    return {"state": status["state"]}
+
+
+@router.get("/api/admin/long-term-memory/status")
+def personal_memory_admin_status(_: Annotated[UserAccount, Depends(require_admin)], db: Annotated[Session, Depends(get_db)]):
+    from app.models.entities import LongTermMemory, LongTermMemoryJob
+    from app.services.long_term_memory import LongTermMemoryService
+    jobs = db.query(LongTermMemoryJob).order_by(LongTermMemoryJob.updated_at.desc()).limit(100).all()
+    service = LongTermMemoryService(db, get_settings())
+    return {"enabled": get_settings().long_term_memory_enabled, "items": [{
+        "userId": j.user_id, "jobState": j.status, "attempts": j.attempts,
+        "processedMessageId": j.processed_message_id, "targetMessageId": j.target_message_id,
+        "memoryCount": db.query(LongTermMemory).filter_by(user_id=j.user_id).count(),
+        "recallCount": j.recall_count, "lastRecalledCount": j.last_recall_count,
+        **service.status(j.user_id)} for j in jobs]}
+
+
 @router.get("/actuator/health")
 def health():
     return {"status": "UP"}

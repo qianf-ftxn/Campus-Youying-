@@ -26,6 +26,7 @@ from app.models.entities import ChatMemorySummary, ChatMessage, RiskEvent, Safet
 from app.schemas.dtos import AiMessage
 from app.services.privacy import PrivacySanitizer
 from app.services.safety_memory import RiskEventDTO, SafetyMemoryService, SafetyStateDTO
+from app.services.long_term_memory import MemoryRecall
 
 logger = logging.getLogger(__name__)
 
@@ -54,10 +55,13 @@ class MemorySnapshot:
     safety_cache_available: bool = True
     degraded: bool = False
     degradation_reasons: tuple[str, ...] = field(default_factory=tuple)
+    long_term_memory: MemoryRecall = field(default_factory=MemoryRecall)
 
     def audit_metadata(self) -> dict[str, Any]:
         safety = self.safety_state.to_payload() if self.safety_state else None
         return {
+            "longTermMemory": {"state": self.long_term_memory.state,
+                "triggered": self.long_term_memory.triggered, "recalledCount": len(self.long_term_memory.items)},
             "summaryVersion": self.summary_version,
             "coveredThroughMessageId": self.covered_through_message_id,
             "recentMessageCount": len(self.recent_messages),

@@ -259,6 +259,9 @@ class AiClient:
         last = next((m.content for m in reversed(messages) if m.role == "user"), "")
         current_input = last.rsplit("当前输入：", 1)[-1].strip() if "当前输入：" in last else last
         system = " ".join(m.content for m in messages if m.role == "system")
+        if "个人长期记忆提取器" in system:
+            from app.services.long_term_memory import mock_memory_candidates
+            return json.dumps(mock_memory_candidates(json.loads(last)['current_input']), ensure_ascii=False)
         if "严格 JSON" in system:
             if has_high_risk_signal(current_input):
                 return '{"emotion":"HIGH_RISK","emotionScore":4.0,"risk":"HIGH","confidence":0.95,"summary":"检测到明确高风险表达"}'

@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 
 from app.agents.result import AgentRunResult
 from app.models.entities import AgentRunTrace, ChatSession, UserAccount, ChatMessage
+from app.services.long_term_memory import hide_private_memory
 
 
 class AgentTraceService:
@@ -123,6 +124,10 @@ def _slim_artifact_payload(kind: str, payload: Any) -> Any:
     if not isinstance(payload, dict):
         return payload
     slimmed = dict(payload)
+    if kind == "context" and slimmed.get("personalMemoryUsed"):
+        slimmed["knowledgeQuery"] = "[个人记忆补全的检索查询已隐藏]"
+        if isinstance(slimmed.get("retrievalTrace"), dict):
+            slimmed["retrievalTrace"] = {**slimmed["retrievalTrace"], "query": "[个人记忆补全的检索查询已隐藏]"}
     for key in ("messages", "modelHistory"):
         if key in slimmed:
             slimmed[key] = f"...omitted ({len(slimmed[key]) if isinstance(slimmed[key], list) else 0} messages, stored separately)"
@@ -145,4 +150,4 @@ def _to_jsonable(value: Any) -> Any:
         return [_to_jsonable(item) for item in value]
     if isinstance(value, dict):
         return {str(key): _to_jsonable(item) for key, item in value.items()}
-    return value
+    return hide_private_memory(value) if isinstance(value, str) else value

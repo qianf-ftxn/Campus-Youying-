@@ -216,6 +216,13 @@ class MindBridgeAgentHarness:
                 raise
         # assistant 保存成功后执行普通记忆维护（12→8 批量压缩，规格 6.8）。
         if completion_status == "COMPLETE":
+            if self.settings.long_term_memory_enabled and reply_to_message_id is not None:
+                try:
+                    from app.services.long_term_memory import LongTermMemoryService
+                    LongTermMemoryService(self.db, self.settings).enqueue(user.id, reply_to_message_id)
+                except Exception as exc:
+                    self.db.rollback()
+                    logger.warning("Personal memory enqueue failed code=%s", type(exc).__name__)
             try:
                 if self.settings.memory_maintenance_queue_enabled:
                     MemoryMaintenanceQueue(self.db, self.settings).enqueue(session.id)

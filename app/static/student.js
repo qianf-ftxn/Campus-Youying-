@@ -30,6 +30,29 @@ const els = {
   studentGreeting: document.querySelector("#studentGreeting"),
   charCount: document.querySelector("#charCount")
 };
+let memoryStatusPoll = 0;
+
+async function refreshMemoryStatus() {
+  const generation = ++memoryStatusPoll;
+  const label = document.querySelector("#memoryState");
+  if (!label || !state.profile) return;
+  for (let attempt = 0; attempt < 60 && generation === memoryStatusPoll; attempt++) {
+    try {
+      const body = await (await api("/api/memory/status")).json();
+      if (generation !== memoryStatusPoll) return;
+      const labels = {UPDATING: "记忆更新中", READY: "记忆已更新", DEGRADED: "记忆已保存，检索同步待完成", ERROR: "记忆更新待重试"};
+      label.textContent = labels[body.state] || "";
+      label.hidden = !label.textContent;
+      if (!["UPDATING", "DEGRADED"].includes(body.state)) return;
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    } catch {
+      if (generation !== memoryStatusPoll) return;
+      label.hidden = false;
+      label.textContent = "记忆状态暂不可用";
+      return;
+    }
+  }
+}
 
 function readAuth() {
   try {
@@ -315,6 +338,7 @@ async function sendMessage(event) {
     state.sending = false;
     updateBusy();
     await loadSessions();
+    refreshMemoryStatus();
   }
 }
 
@@ -371,6 +395,7 @@ checkHealth();
 loadProfile().then((profile) => {
   if (profile) {
     updateBusy();
+    refreshMemoryStatus();
     loadAgentStatus().catch(() => setPill(els.modelState, "模型状态暂不可用", "warn"));
     loadSessions().then(() => {
       const previous = sessionStorage.getItem(activeSessionKey());

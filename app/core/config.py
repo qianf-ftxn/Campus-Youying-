@@ -98,6 +98,15 @@ class Settings(BaseSettings):
     memory_maintenance_queue_enabled: bool = True
     memory_maintenance_poll_interval_seconds: float = 1.0
     memory_maintenance_max_attempts: int = 3
+    # 用户级长期记忆：与会话摘要、安全状态、政策知识索引分离。
+    long_term_memory_enabled: bool = True
+    long_term_memory_vector_enabled: bool = True
+    long_term_memory_collection: str = "campus_personal_memory_v1"
+    long_term_memory_poll_seconds: float = 2.0
+    long_term_memory_max_attempts: int = 3
+    long_term_memory_recall_k: int = 4
+    long_term_memory_max_distance: float = 0.65
+    long_term_memory_context_chars: int = 1500
     # ---- 安全事件记忆 ----
     safety_memory_enabled: bool = True
     safety_state_scope: Literal["session"] = "session"

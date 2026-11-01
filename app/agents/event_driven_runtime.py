@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import uuid
 from time import perf_counter
-from dataclasses import asdict, is_dataclass
+from dataclasses import asdict, is_dataclass, replace
 from enum import Enum
 from typing import Any
 
@@ -87,6 +87,15 @@ class EventDrivenAgentRuntimeService:
             session_id=session.id,
             current_message_id=current_message_id,
         )
+        # Resolve relevant cross-session references before understanding; SafetyAgent does not consume this block.
+        if self.settings.long_term_memory_enabled:
+            from app.services.long_term_memory import LongTermMemoryService, MemoryRecall
+            try:
+                recall = LongTermMemoryService(self.db, self.settings).recall(user.id, model_input)
+                snapshot = replace(snapshot, long_term_memory=recall)
+            except Exception:
+                self.db.rollback()
+                snapshot = replace(snapshot, long_term_memory=MemoryRecall(state="UNAVAILABLE"))
         board = CollaborationBlackboard(
             turn_id=uuid.uuid4().hex,
             user_id=user.id,

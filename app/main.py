@@ -9,6 +9,7 @@ from app.core.config import get_settings
 from app.core.database import SessionLocal
 from app.services.tool_queue import get_tool_queue_worker
 from app.services.memory_maintenance import get_memory_maintenance_worker
+from app.services.long_term_worker import LongTermMemoryWorker
 
 
 def create_app() -> FastAPI:
@@ -36,9 +37,15 @@ def create_app() -> FastAPI:
         memory_worker = get_memory_maintenance_worker(get_settings())
         memory_worker.start()
         app.state.memory_maintenance_worker = memory_worker
+        personal_worker = LongTermMemoryWorker(get_settings())
+        personal_worker.start()
+        app.state.long_term_memory_worker = personal_worker
 
     @app.on_event("shutdown")
     def shutdown() -> None:
+        personal_worker = getattr(app.state, "long_term_memory_worker", None)
+        if personal_worker is not None:
+            personal_worker.stop()
         worker = getattr(app.state, "tool_queue_worker", None)
         if worker is not None:
             worker.stop()

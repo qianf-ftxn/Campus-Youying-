@@ -151,7 +151,11 @@ def _evaluate_case(
 
     multi_started = time.perf_counter()
     run = EventDrivenAgentRuntimeService(db, settings).run(user, session, case.question, case.question)
-    multi_answer = AiClient(settings).complete(run.response_messages).strip()
+    # Evaluate the text actually accepted by the runtime. Regenerating here
+    # bypasses its review and charges an extra model call to the multi arm.
+    multi_answer = run.response_text.strip()
+    if not multi_answer:
+        raise ValueError("Multi-agent runtime returned an empty answer")
     multi_latency = (time.perf_counter() - multi_started) * 1000
 
     same_knowledge = knowledge.retrieve(case.question, settings.knowledge_top_k)

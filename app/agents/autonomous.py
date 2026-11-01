@@ -175,7 +175,7 @@ class UnderstandingAgent(BaseAutonomousAgent):
             self.routing_reason = decision.rule_id
             return decision.intent
         try:
-            history = _snapshot_context_messages(board, limit=8)
+            history = _snapshot_context_messages(board, limit=8, include_long_term=True)
             memory_context = "\n".join(item.content for item in self.private_memory()[-6:])
             messages = [
                 *PromptTemplates.intent_prompt(history, text),
@@ -458,6 +458,8 @@ class ContextAgent(BaseAutonomousAgent):
                     "不要据此输出诊断、风险等级或后台标签）：\n" + snapshot.summary_text
                 ),
             ))
+        if snapshot and snapshot.long_term_memory.items:
+            model_history.append(AiMessage(role="system", content=snapshot.long_term_memory.prompt()))
         recent = list(snapshot.recent_messages) if snapshot else []
         model_history.extend(recent)
         model_history.append(AiMessage(role="user", content=board.model_input))
@@ -474,7 +476,10 @@ class ContextAgent(BaseAutonomousAgent):
         skill_context = ""
         if intent != IntentType.CHAT or effective != RiskLevel.LOW:
             domain = "policy" if intent == IntentType.CONSULT and effective != RiskLevel.HIGH else "support"
-            query = self._rewrite_query(memory_brief, board.model_input, domain)
+            query_context = memory_brief
+            if snapshot and snapshot.long_term_memory.items:
+                query_context += "\n" + snapshot.long_term_memory.prompt()
+            query = self._rewrite_query(query_context, board.model_input, domain)
             try:
                 retrieved = self.services.knowledge.retrieve(query, self.services.settings.knowledge_top_k,
                     domain=domain, school=self.services.settings.campus_name)
@@ -486,6 +491,7 @@ class ContextAgent(BaseAutonomousAgent):
             skill_context = MindBridgeSkillLibrary.response_skill_context(intent, effective, board.user_input)
         payload = {
             "memoryBrief": memory_brief,
+            "personalMemoryUsed": bool(snapshot and snapshot.long_term_memory.items),
             "modelHistory": model_history,
             "knowledgeQuery": query,
             "retrievalTrace": {**self.services.knowledge.last_retrieval,
@@ -827,10 +833,12 @@ def _safety_status(board: CollaborationBlackboard) -> str:
     return "RESOLVED"
 
 
-def _snapshot_context_messages(board: CollaborationBlackboard, limit: int = 10) -> list[AiMessage]:
+def _snapshot_context_messages(board: CollaborationBlackboard, limit: int = 10, include_long_term: bool = False) -> list[AiMessage]:
     """评估/分类用上下文：摘要概览 + 最近原文。"""
     snapshot = board.memory_snapshot
     messages: list[AiMessage] = []
+    if include_long_term and snapshot and snapshot.long_term_memory.items:
+        messages.append(AiMessage(role="system", content=snapshot.long_term_memory.prompt()))
     if snapshot and snapshot.summary_text and snapshot.summary_text != "暂无摘要内容。":
         messages.append(AiMessage(role="system", content=f"较早对话摘要：\n{snapshot.summary_text}"))
     if snapshot and snapshot.active_risk_events:

@@ -22,6 +22,7 @@ def readiness(db, settings, state):
     for key, enabled, worker_name, thread_name in (
         ("toolQueue", settings.tool_queue_enabled, "tool_queue_worker", "dispatcher"),
         ("memoryMaintenance", settings.memory_maintenance_queue_enabled, "memory_maintenance_worker", "thread"),
+        ("longTermMemory", settings.long_term_memory_enabled, "long_term_memory_worker", "thread"),
     ):
         worker = getattr(state, worker_name, None)
         thread = getattr(worker, thread_name, None)

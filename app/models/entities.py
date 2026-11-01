@@ -218,6 +218,54 @@ class MemoryMaintenanceJob(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=now)
 
 
+class LongTermMemory(Base):
+    __tablename__ = "long_term_memories"
+    __table_args__ = (UniqueConstraint("user_id", "memory_key", name="uq_personal_memory_key"),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("user_accounts.id"), index=True)
+    memory_type: Mapped[str] = mapped_column(String(16))
+    memory_key: Mapped[str] = mapped_column(String(128))
+    content: Mapped[str] = mapped_column(Text)
+    topic: Mapped[str] = mapped_column(String(80), default="")
+    status: Mapped[str] = mapped_column(String(16), default="ACTIVE", index=True)
+    source_session_id: Mapped[int] = mapped_column(ForeignKey("chat_sessions.id"))
+    source_message_id: Mapped[int] = mapped_column(ForeignKey("chat_messages.id"), index=True)
+    valid_until: Mapped[Optional[datetime]] = mapped_column(DateTime, nullable=True)
+    revision: Mapped[int] = mapped_column(Integer, default=1)
+    indexed_revision: Mapped[int] = mapped_column(Integer, default=0)
+    index_fingerprint: Mapped[str] = mapped_column(String(64), default="")
+    index_error: Mapped[str] = mapped_column(String(64), default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
+class LongTermMemoryJob(Base):
+    """每用户一条持久任务；target 单调增长，处理游标只在成功后推进。"""
+    __tablename__ = "long_term_memory_jobs"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("user_accounts.id"), unique=True, index=True)
+    target_message_id: Mapped[int] = mapped_column(Integer, default=0)
+    processed_message_id: Mapped[int] = mapped_column(Integer, default=0)
+    forget_through_message_id: Mapped[int] = mapped_column(Integer, default=0)
+    status: Mapped[str] = mapped_column(String(16), default="PENDING", index=True)
+    attempts: Mapped[int] = mapped_column(Integer, default=0)
+    run_after: Mapped[datetime] = mapped_column(DateTime, default=now)
+    last_error: Mapped[str] = mapped_column(String(64), default="")
+    last_recall_state: Mapped[str] = mapped_column(String(32), default="NOT_REQUESTED")
+    last_recall_count: Mapped[int] = mapped_column(Integer, default=0)
+    recall_count: Mapped[int] = mapped_column(Integer, default=0)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
+class LongTermMemoryExtraction(Base):
+    """Per-source idempotency, including turns that yielded no candidates."""
+    __tablename__ = "long_term_memory_extractions"
+    message_id: Mapped[int] = mapped_column(ForeignKey("chat_messages.id"), primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("user_accounts.id"), index=True)
+    changed_count: Mapped[int] = mapped_column(Integer, default=0)
+    processed_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+
 class DeadLetterRecord(Base):
     __tablename__ = "dead_letter_records"
 

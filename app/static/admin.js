@@ -748,10 +748,29 @@ els.backupVector.addEventListener("click", () => runKnowledgeAction("backup"));
 checkHealth();
 loadProfile().then((profile) => {
   if (!profile) return;
+  loadPersonalMemoryStatus();
   loadAgentStatus();
   loadAdminDashboard();
   loadKnowledgeStatus();
 });
+
+async function loadPersonalMemoryStatus() {
+  const box = document.getElementById("personalMemoryStatus");
+  if (!box) return;
+  try {
+    const body = await (await api("/api/admin/long-term-memory/status")).json();
+    box.replaceChildren();
+    for (const row of body.items) {
+      const line = document.createElement("p");
+      line.textContent = `用户 #${row.userId} · ${row.state} · 任务 ${row.jobState} · 记忆 ${row.memoryCount} 条 · 待同步 ${row.indexPending} 条 · 召回 ${row.recallCount} 次 · 最近 ${row.recallState} / ${row.lastRecalledCount} 条${row.errorCode ? ` · 故障 ${row.errorCode}` : ""}`;
+      box.append(line);
+    }
+    if (!body.items.length) box.textContent = body.enabled ? "暂无长期记忆处理任务" : "长期记忆未启用";
+  } catch {
+    box.textContent = "长期记忆状态暂不可用";
+  }
+}
+document.getElementById("refreshPersonalMemory")?.addEventListener("click", loadPersonalMemoryStatus);
 
 async function loadKnowledgeDocuments() {
   const container = document.getElementById("knowledgeDocuments");
