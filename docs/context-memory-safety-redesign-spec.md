@@ -2,7 +2,7 @@
 
 > 文档状态：设计规格，尚未实现  
 > 目标读者：负责下一阶段实现、评审、测试和上线的开发者或 Agent  
-> 适用仓库：`mindbridge-py`  
+> 适用仓库：`ReplyU`（GitHub: Campus-Youying-）  
 > 核心目标：修复旧历史被遗忘、跨轮风险无法继承、风险记录只写不读的问题  
 > 配套接手指南：[`context-memory-before-after-guide.md`](./context-memory-before-after-guide.md)
 
